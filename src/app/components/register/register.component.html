@@ -1,0 +1,256 @@
+<!-- src/app/components/register/register.component.html -->
+<section class="register-section">
+  <div class="container split-layout">
+
+    <div class="requirements-col">
+      <h2 class="section-title"><span>{{ lang.t.req_title }}</span></h2>
+      <h3>{{ lang.t.req_subtitle }}</h3>
+      <ul class="req-list">
+        <li>{{ lang.t.req_1 }}</li>
+        <li>{{ lang.t.req_2 }}</li>
+        <li>{{ lang.t.req_3 }}</li>
+        <li>{{ lang.t.req_4 }}</li>
+        <li>{{ lang.t.req_5 }}</li>
+        <li>{{ lang.t.req_6 }}</li>
+      </ul>
+    </div>
+
+
+    <div class="form-col">
+      <div class="glass-form">
+        <h3>{{ lang.t.form_title }}</h3>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_email }}</label>
+            <input type="email" formControlName="email" placeholder="{{ lang.t.lbl_email }}">
+            <small *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error-msg">
+              Email inválido
+            </small>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_name }}</label>
+            <input type="text" formControlName="name" placeholder="{{ lang.t.lbl_name }}">
+            <small *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_phone_number }}</label>
+            <input type="text" formControlName="phone_number" placeholder="{{ lang.t.lbl_phone_number }}">
+            <small *ngIf="registerForm.get('phone_number')?.invalid && registerForm.get('phone_number')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+          
+          <div class="input-group">
+            <label>{{ lang.t.lbl_inst }}</label>
+            <input type="text" formControlName="institute" placeholder="{{ lang.t.lbl_inst }}">
+            <small *ngIf="registerForm.get('institute')?.invalid && registerForm.get('institute')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_role }}</label>
+            <select formControlName="role" placeholder="Role">
+              <option>Estudiante / Student</option>
+              <option>Desarrollador / Developer</option>
+              <option>Ingeniero / Engineer</option>
+              <option>Investigador / Researcher</option>
+              <option>Físico / Physicist</option>
+              <option>Docente / Professor</option>
+              <option>Científico de Datos / Data Scientist</option>
+              <option>Otro / Other</option>
+            </select>
+          </div>
+
+
+          <div class="row">
+            <div class="input-group">
+              <label>{{ lang.t.lbl_nationality }}</label>
+              <input type="text" formControlName="nationality" placeholder="{{ lang.t.lbl_nationality }}">
+              <small *ngIf="registerForm.get('nationality')?.invalid && registerForm.get('nationality')?.touched" class="error-msg">*</small>
+            </div>
+            <div class="input-group">
+              <label>{{ lang.t.lbl_recity }}</label>
+              <input type="text" formControlName="recity" placeholder="{{ lang.t.lbl_recity }}">
+              <small *ngIf="registerForm.get('recity')?.invalid && registerForm.get('recity')?.touched" class="error-msg">*</small>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_biography }}</label>
+            <input type="textarea" formControlName="biography" placeholder="{{ lang.t.lbl_biography }}">
+            <small *ngIf="registerForm.get('biography')?.invalid && registerForm.get('biography')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="row">
+            <div class="input-group">
+              <label>{{ lang.t.lbl_linkedin }}</label>
+              <input type="text" formControlName="linkedin" placeholder="{{ lang.t.lbl_linkedin }}">
+              <small *ngIf="registerForm.get('linkedin')?.invalid && registerForm.get('linkedin')?.touched" class="error-msg">*</small>
+            </div>
+            <div class="input-group">
+              <label>{{ lang.t.lbl_github }}</label>
+              <input type="text" formControlName="github" placeholder="{{ lang.t.lbl_github }}">
+              <small *ngIf="registerForm.get('github')?.invalid && registerForm.get('github')?.touched" class="error-msg">*</small>
+            </div>
+          </div>
+          
+           <div class="input-group">
+            <label>{{ lang.t.lbl_specific_needs }}</label>
+            <input type="textarea" formControlName="specific_needs" placeholder="{{ lang.t.lbl_specific_needs }}">
+            <small *ngIf="registerForm.get('specific_needs')?.invalid && registerForm.get('specific_needs')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_field_expertise }}</label>
+            <input type="text" formControlName="field_expertise" placeholder="{{ lang.t.lbl_field_expertise }}">
+            <small *ngIf="registerForm.get('field_expertise')?.invalid && registerForm.get('field_expertise')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_infomed_SDGs }}</label>
+            <input type="text" formControlName="infomed_SDGs" placeholder="{{ lang.t.lbl_infomed_SDGs }}">
+            <small *ngIf="registerForm.get('infomed_SDGs')?.invalid && registerForm.get('infomed_SDGs')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_whish_skills }}</label>
+            <input type="text" formControlName="whish_skills" placeholder="{{ lang.t.lbl_whish_skills }}">
+            <small *ngIf="registerForm.get('whish_skills')?.invalid && registerForm.get('whish_skills')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_QC_skills }}</label>
+            <input type="text" formControlName="QC_skills" placeholder="{{ lang.t.lbl_QC_skills }}">
+            <small *ngIf="registerForm.get('QC_skills')?.invalid && registerForm.get('QC_skills')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_topics_QC }}</label>
+            <input type="text" formControlName="topics_QC" placeholder="{{ lang.t.lbl_topics_QC }}">
+            <small *ngIf="registerForm.get('topics_QC')?.invalid && registerForm.get('topics_QC')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_familiarity_QC_hardware }}</label>
+            <input type="text" formControlName="familiarity_QC_hardware" placeholder="{{ lang.t.lbl_familiarity_QC_hardware }}">
+            <small *ngIf="registerForm.get('familiarity_QC_hardware')?.invalid && registerForm.get('familiarity_QC_hardware')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_QC_language }}</label>
+            <input type="text" formControlName="QC_language" placeholder="{{ lang.t.lbl_QC_language }}">
+            <small *ngIf="registerForm.get('QC_language')?.invalid && registerForm.get('QC_language')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_first_hackathon }}</label>
+            <input type="text" formControlName="first_hackathon" placeholder="{{ lang.t.lbl_first_hackathon }}">
+            <small *ngIf="registerForm.get('first_hackathon')?.invalid && registerForm.get('first_hackathon')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_ia_skills }}</label>
+            <input type="text" formControlName="ia_skills" placeholder="{{ lang.t.lbl_ia_skills }}">
+            <small *ngIf="registerForm.get('ia_skills')?.invalid && registerForm.get('ia_skills')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+          
+          <div class="input-group">
+            <label>{{ lang.t.lbl_hackathon_experience }}</label>
+            <input type="text" formControlName="hackathon_experience" placeholder="{{ lang.t.lbl_hackathon_experience }}">
+            <small *ngIf="registerForm.get('hackathon_experience')?.invalid && registerForm.get('hackathon_experience')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="row">
+            <div class="input-group">
+              <label>{{ lang.t.lbl_aspart_team }}</label>
+              <input type="text" formControlName="aspart_team" placeholder="{{ lang.t.lbl_aspart_team }}">
+              <small *ngIf="registerForm.get('aspart_team')?.invalid && registerForm.get('aspart_team')?.touched" class="error-msg">*</small>
+            </div>
+            <div class="input-group">
+              <label>{{ lang.t.lbl_team_name }}</label>
+              <input type="text" formControlName="team_name" placeholder="{{ lang.t.lbl_team_name }}">
+              <small *ngIf="registerForm.get('team_name')?.invalid && registerForm.get('team_name')?.touched" class="error-msg">*</small>
+            </div>
+            <div class="input-group">
+              <label>{{ lang.t.lbl_team_size }}</label>
+              <input type="text" formControlName="team_size" placeholder="{{ lang.t.lbl_team_size }}">
+              <small *ngIf="registerForm.get('team_size')?.invalid && registerForm.get('team_size')?.touched" class="error-msg">*</small>
+            </div>
+          </div>
+
+                    
+          <div class="input-group">
+            <label>{{ lang.t.lbl_team_names }}</label>
+            <input type="text" formControlName="team_names" placeholder="{{ lang.t.lbl_team_names }}">
+            <small *ngIf="registerForm.get('team_names')?.invalid && registerForm.get('team_names')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+          <div class="input-group">
+            <label>{{ lang.t.lbl_SDG_goals }}</label>
+            <input type="text" formControlName="SDG_goals" placeholder="{{ lang.t.lbl_SDG_goals }}">
+            <small *ngIf="registerForm.get('SDG_goals')?.invalid && registerForm.get('SDG_goals')?.touched" class="error-msg">
+              Campo requerido
+            </small>
+          </div>
+
+
+          <div class="input-group file-group">
+            <label>{{ lang.t.lbl_file }} <small>(PDF, Max 5MB)</small></label>
+            <div class="custom-file-upload"
+                [class.error]="registerForm.get('file')?.invalid && registerForm.get('file')?.touched">
+              <input type="file" #fileInput (change)="onFileSelected($event)" accept=".pdf,.doc,.docx" hidden>
+              <button type="button" class="upload-btn" (click)="fileInput.click()" [disabled]="isSubmitting">
+                <i class="fa-solid fa-cloud-arrow-up"></i> {{ lang.t.btn_upload }}
+              </button>
+              <span class="file-name">
+                {{ fileName || lang.t.no_file }}
+              </span>
+            </div>
+            <small *ngIf="registerForm.get('file')?.invalid && registerForm.get('file')?.touched" class="error-msg">
+              Archivo requerido
+            </small>
+          </div>
+
+          <button type="submit" class="submit-btn" [disabled]="isSubmitting">
+            <span *ngIf="!isSubmitting">{{ lang.t.btn_send }}</span>
+            <span *ngIf="isSubmitting">Enviando...</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>

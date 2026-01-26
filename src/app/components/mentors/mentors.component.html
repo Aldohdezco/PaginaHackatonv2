@@ -1,0 +1,93 @@
+<section class="mentors-section">
+  <div class="container">
+
+    <!-- 1) TENTATIVE SPEAKERS LIST -->
+    <h2 class="section-title">
+      <span>{{ langService.t.committee_title }}</span>
+    </h2>
+
+    <div class="grid">
+      <div class="tech-card" *ngFor="let person of speakersList">
+        <span class="corner top-left"></span>
+        <span class="corner top-right"></span>
+        <span class="corner bottom-left"></span>
+        <span class="corner bottom-right"></span>
+
+        <div class="img-container">
+          <img [src]="person.image" [alt]="person.name">
+          <div class="scanner-line"></div>
+          <div class="overlay"></div>
+        </div>
+
+        <div class="info">
+          <h3>{{ person.name }}</h3>
+          <p class="role">{{ person.role }}</p>
+          <div class="company-badge">
+            <i class="fa-solid fa-microphone-lines"></i> {{ person.company }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 120px;"></div>
+
+    <!-- 2) Comité -->
+    <h2 class="section-title">
+      <span>{{ langService.t.speakers_title }}</span>
+    </h2>
+
+    <div class="grid">
+      <div class="tech-card" *ngFor="let person of mentorsList">
+        <span class="corner top-left"></span>
+        <span class="corner top-right"></span>
+        <span class="corner bottom-left"></span>
+        <span class="corner bottom-right"></span>
+
+        <div class="img-container">
+          <img [src]="person.image" [alt]="person.name">
+          <div class="scanner-line"></div>
+          <div class="overlay"></div>
+        </div>
+
+        <div class="info">
+          <h3>{{ person.name }}</h3>
+          <p class="role">{{ person.role }}</p>
+          <div class="company-badge">
+            <i class="fa-solid fa-user-gear"></i> {{ person.company }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 120px;"></div>
+
+    <!-- 3) Jueces -->
+    <h2 class="section-title">
+      <span>{{ langService.t.judges_title }}</span>
+    </h2>
+
+    <div class="grid">
+      <div class="tech-card" *ngFor="let person of mentorsAndJudgesList">
+        <span class="corner top-left"></span>
+        <span class="corner top-right"></span>
+        <span class="corner bottom-left"></span>
+        <span class="corner bottom-right"></span>
+
+        <div class="img-container">
+          <img [src]="person.image" [alt]="person.name">
+          <div class="scanner-line"></div>
+          <div class="overlay"></div>
+        </div>
+
+        <div class="info">
+          <h3>{{ person.name }}</h3>
+          <p class="role">{{ person.role }}</p>
+          <div class="company-badge">
+            <i class="fa-solid fa-user-gear"></i> {{ person.company }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

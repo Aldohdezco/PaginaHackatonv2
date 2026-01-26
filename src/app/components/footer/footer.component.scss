@@ -1,0 +1,216 @@
+.tech-footer {
+  background-color: #02040a;
+  color: #ccc;
+  padding-top: 80px;
+  position: relative;
+  border-top: 1px solid rgba(0, 181, 226, 0.3);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, #00B5E2, transparent);
+    opacity: 0.7;
+  }
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 60px;
+
+  @media(max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media(max-width: 600px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.footer-col {
+  h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 20px;
+  .highlight { color: #00B5E2; }
+}
+.brand-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+
+  li { margin-bottom: 12px; }
+
+  a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+    &:hover { color: #00B5E2; padding-left: 5px; }
+  }
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+
+    i { color: #00B5E2; margin-top: 4px; }
+
+    @media(max-width: 600px) {
+      justify-content: center;
+    }
+  }
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  @media(max-width: 600px) { justify-content: center; }
+
+  .social-btn {
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    color: white;
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
+
+    &:hover {
+      background: #00B5E2;
+      border-color: #00B5E2;
+      transform: translateY(-3px);
+    }
+  }
+}
+
+.newsletter-box {
+  p { font-size: 0.85rem; margin-bottom: 10px; opacity: 0.7; }
+
+  .input-group {
+    display: flex;
+    background: rgba(255,255,255,0.05);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+
+    input {
+      background: transparent;
+      border: none;
+      padding: 10px;
+      color: white;
+      width: 100%;
+      font-family: inherit;
+      outline: none;
+    }
+
+    button {
+      background: #002E63;
+      border: none;
+      color: white;
+      padding: 0 15px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover { background: #00B5E2; }
+    }
+  }
+}
+
+.footer-bottom {
+  background-color: #000;
+  padding: 20px 0;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+
+  .bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media(max-width: 600px) {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+
+  .legal-links {
+    a { color: #888; text-decoration: none; &:hover { color: white; } }
+    span { margin: 0 10px; color: #444; }
+  }
+}
+
+.footer-bottom {
+  background-color: #000;
+  padding: 25px 0;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: #666;
+
+  .bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; // Para que se acomode en celular
+    gap: 15px;
+  }
+
+  p {
+    margin: 0;
+    span { opacity: 0.7; }
+  }
+
+  .legal-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    a {
+      color: #888;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: 500;
+
+      &:hover {
+        color: #00B5E2; // Se pone azul al pasar el mouse
+        text-decoration: underline;
+      }
+    }
+
+    .separator {
+      color: #333;
+    }
+  }
+
+  // Ajuste móvil
+  @media(max-width: 768px) {
+    .bottom-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}

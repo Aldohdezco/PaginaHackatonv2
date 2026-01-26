@@ -1,0 +1,67 @@
+<footer class="tech-footer">
+
+  <div class="container footer-content">
+
+    <div class="footer-col brand-col">
+      <div class="footer-logo">HACKATHON<span class="highlight">_LATAM</span></div>
+      <p class="brand-desc">{{ langService.t.foot_desc }}</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>{{ langService.t.foot_explore }}</h4>
+      <ul class="footer-links">
+        <li><a routerLink="/">{{ langService.t.nav_home }}</a></li>
+        <li><a routerLink="/registro">{{ langService.t.nav_req }}</a></li>
+        <li><a routerLink="/premios">{{ langService.t.nav_awards }}</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>{{ langService.t.foot_contact_dir }}</h4>
+      <ul class="contact-list">
+        <li>
+          <i class="fa-solid fa-envelope"></i>
+          <span>hackathon&#64;correo.buap.mx</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Benemerita Universidad Autonoma de Puebla (BUAP).</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>{{ langService.t.foot_follow }}</h4>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/BUAPoficial" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/buapoficial" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+
+      <div class="newsletter-box">
+        <p>{{ langService.t.foot_news }}</p>
+        <div class="input-group">
+          <input type="email" placeholder="...">
+          <button><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container bottom-content">
+
+      <p>
+        &copy; 2026 Benemérita Universidad Autónoma de Puebla.
+        <span>{{ langService.t.foot_rights }}</span>
+      </p>
+
+      <div class="legal-links">
+        <a href="https://www.buap.mx/aviso-de-privacidad" target="_blank">{{ langService.t.foot_privacy }}</a>
+        <span class="separator">|</span>
+        <a href="#">{{ langService.t.foot_terms }}</a>
+      </div>
+
+    </div>
+  </div>
+
+</footer>

@@ -1,0 +1,95 @@
+.navbar {
+  position: fixed;
+  top: 0; width: 100%;
+  padding: 20px 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: transparent;
+
+  &.scrolled {
+    background: rgba(0, 46, 99, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; // Importante para posicionar el menú móvil
+}
+
+.logo {
+  font-size: 1.5rem; font-weight: 900; cursor: pointer;
+  .white-text { color: white; }
+  .cyan-text { color: #00B5E2; }
+}
+
+// Botón Hamburguesa (Oculto en Desktop)
+.menu-toggle {
+  display: none; // Por defecto no se ve
+  background: none; border: none;
+  color: white; font-size: 1.8rem;
+  cursor: pointer;
+}
+
+// Wrapper de links y botón idioma
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links {
+  display: flex; list-style: none; gap: 30px; margin: 0; padding: 0;
+
+  li {
+    cursor: pointer; font-weight: 500; color: #ddd; position: relative; transition: 0.3s;
+    &:hover, &.active { color: #00B5E2; }
+  }
+}
+
+.lang-btn {
+  background: transparent; border: 1px solid white; color: white;
+  padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: 0.3s;
+  &:hover { background: white; color: #002E63; }
+}
+
+// --- RESPONSIVE (MÓVIL) ---
+@media (max-width: 768px) {
+
+  // Mostramos el botón hamburguesa
+  .menu-toggle { display: block; z-index: 1001; }
+
+  // Transformamos el wrapper en un menú vertical
+  .nav-wrapper {
+    position: fixed;
+    top: 0; right: -100%; // Oculto a la derecha
+    width: 70%; // Ocupa el 70% de la pantalla
+    height: 100vh;
+    background: rgba(11, 17, 32, 0.98); // Fondo oscuro casi sólido
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+
+    // Cuando está activo (isMenuOpen = true)
+    &.active { right: 0; }
+  }
+
+  .nav-links {
+    flex-direction: column;
+    text-align: center;
+
+    li { font-size: 1.5rem; } // Letras más grandes para tocar fácil
+  }
+
+  .lang-btn {
+    padding: 10px 30px;
+    font-size: 1.2rem;
+  }
+}

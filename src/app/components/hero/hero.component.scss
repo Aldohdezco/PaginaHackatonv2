@@ -1,0 +1,250 @@
+$bg-deep: #010203;
+$glow-center: #081c29;
+$gold: #6ffafa;
+$cyan: #00F0FF;
+$glass-bg: rgba(255, 255, 255, 0.03);
+$glass-border: rgba(255, 255, 255, 0.1);
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  color: white;
+  background: radial-gradient(circle at 50% 50%, $glow-center 0%, $bg-deep 80%);
+}
+
+.orb-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
+}
+
+// --- TIPOGRAFÍA Y BADGES ---
+
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid $glass-border;
+  border-radius: 30px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $gold;
+  margin-bottom: 25px;
+  backdrop-filter: blur(5px);
+
+  .chip-icon {
+    width: 6px; height: 6px;
+    background: $cyan;
+    border-radius: 50%;
+    box-shadow: 0 0 10px $cyan;
+    animation: pulse 2s infinite;
+  }
+}
+
+.hero-title {
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 0.9;
+  margin: 0 0 25px;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  color: white;
+
+  .highlight-text {
+    background: linear-gradient(90deg, $cyan, white, $cyan);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 5s linear infinite;
+    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.4));
+  }
+
+  .highlight-year {
+    color: transparent;
+    -webkit-text-stroke: 2px $gold;
+    position: relative;
+    margin-left: 10px;
+    filter: drop-shadow(0 0 15px rgba(226, 194, 117, 0.3));
+  }
+}
+
+.subtitle {
+  font-size: 1.35rem;
+  color: #b0b0b0;
+  font-weight: 300;
+  max-width: 750px;
+  line-height: 1.5;
+  margin-bottom: 35px;
+}
+
+.data-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 25px;
+  background: rgba(0, 46, 99, 0.3);
+  border: 1px solid rgba(0, 181, 226, 0.3);
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  color: $cyan;
+  letter-spacing: 1px;
+
+  i { color: $gold; }
+}
+
+
+.quantum-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 50px 0;
+  padding: 20px;
+  background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.05) 0%, transparent 70%);
+  border-radius: 20px;
+}
+
+.time-prism {
+  position: relative;
+  width: 100px; height: 110px;
+  background: $glass-bg;
+  border: 1px solid $glass-border;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  .prism-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  }
+
+  .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 8px;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+
+  // Luz interna
+  .prism-glow {
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 240, 255, 0.15);
+    border-color: rgba(0, 240, 255, 0.3);
+    .prism-glow { opacity: 1; }
+  }
+
+  &.secs-prism {
+    border-color: rgba(0, 240, 255, 0.3);
+    .num.highlight-num {
+      color: $cyan;
+      text-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+    }
+  }
+}
+
+.timer-separator {
+  font-size: 2.5rem;
+  color: rgba(0, 240, 255, 0.5);
+  margin-top: -25px;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+// --- BOTÓN GLOW ---
+.btn-glow {
+  background: linear-gradient(135deg, #fff, #e6e6e6);
+  color: $bg-deep;
+  padding: 18px 50px;
+  border-radius: 50px;
+  font-weight: 800;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    background: $cyan;
+    color: $bg-deep;
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 10px 50px rgba(0, 240, 255, 0.5);
+  }
+  &:active { transform: scale(0.98); }
+}
+
+// ANIMACIONES
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 240, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0); }
+}
+
+// RESPONSIVE
+@media (max-width: 992px) {
+  .hero-title { font-size: 4.5rem; }
+}
+@media (max-width: 768px) {
+  .hero-content { padding: 40px 15px; }
+  .hero-title { font-size: 3.2rem; letter-spacing: -1px; }
+  .subtitle { font-size: 1.1rem; }
+  .quantum-timer { gap: 8px; margin: 30px 0; }
+  .time-prism { width: 65px; height: 80px; .num { font-size: 2rem; } .label { font-size: 0.6rem; } }
+  .timer-separator { font-size: 1.8rem; margin-top: -20px; }
+}

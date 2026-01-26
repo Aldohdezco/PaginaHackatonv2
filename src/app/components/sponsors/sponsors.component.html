@@ -1,0 +1,38 @@
+<section id="sponsors" class="sponsors-section">
+  <div class="container">
+
+    <div class="organizers-block">
+      <h2 class="section-title small">
+        <span>{{ langService.t.org_title }}</span>
+      </h2>
+
+      <div class="organizers-grid">
+        <a *ngFor="let org of organizers" [href]="org.url" target="_blank" class="org-item">
+          <img [src]="org.img" [alt]="org.name">
+        </a>
+      </div>
+    </div>
+
+    <div class="partners-block">
+      <h2 class="section-title small">
+        <span>{{ langService.t.sponsors_title }}</span>
+      </h2>
+
+      <div class="slider">
+        <div class="slide-track">
+          <div class="slide" *ngFor="let sponsor of sponsors">
+            <a [href]="sponsor.url" target="_blank">
+              <img [src]="sponsor.img" [alt]="sponsor.name">
+            </a>
+          </div>
+          <div class="slide" *ngFor="let sponsor of sponsors">
+            <a [href]="sponsor.url" target="_blank">
+              <img [src]="sponsor.img" [alt]="sponsor.name">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

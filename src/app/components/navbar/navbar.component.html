@@ -1,0 +1,28 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="container nav-content">
+
+    <div class="logo" routerLink="/" (click)="closeMenu()">
+      <span class="white-text">HACKATHON</span><span class="cyan-text">_LATAM</span>
+    </div>
+
+    <button class="menu-toggle" (click)="toggleMenu()">
+      <i class="fa-solid" [class.fa-bars]="!isMenuOpen" [class.fa-xmark]="isMenuOpen"></i>
+    </button>
+
+    <div class="nav-wrapper" [class.active]="isMenuOpen">
+
+      <ul class="nav-links">
+        <li routerLink="/" (click)="closeMenu()">{{ langService.t.nav_home }}</li>
+        <li routerLink="/premios" routerLinkActive="active" (click)="closeMenu()">{{ langService.t.nav_awards }}</li>
+        <li routerLink="/registro" routerLinkActive="active" (click)="closeMenu()">{{ langService.t.nav_req }}</li>
+      </ul>
+
+      <button class="lang-btn" (click)="langService.toggleLang(); closeMenu()">
+        <i class="fa-solid fa-globe"></i>
+        {{ langService.currentLang() === 'es' ? 'EN' : 'ES' }}
+      </button>
+
+    </div>
+
+  </div>
+</nav>

@@ -1,0 +1,30 @@
+<section class="gallery-section">
+  <div class="carousel-container">
+
+    <div class="slides-wrapper">
+      <div class="slide" *ngFor="let slide of slides; let i = index"
+           [class.active]="i === currentIndex">
+
+        <div class="img-bg" [style.backgroundImage]="'url(' + slide.src + ')'"></div>
+        <div class="overlay"></div>
+
+        <div class="slide-content container">
+          <span class="badge">{{ langService.t.gal_title }}</span> <h2>{{ langService.t[slide.titleKey] }}</h2>
+          <p>{{ langService.t[slide.descKey] }}</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="controls container">
+      <div class="arrows">
+        <button class="nav-btn prev" (click)="prev()"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="nav-btn next" (click)="next()"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="indicators">
+        <span *ngFor="let slide of slides; let i = index" class="line" [class.active]="i === currentIndex" (click)="goToSlide(i)"></span>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,69 @@
+<section id="hero" class="hero-section">
+
+  <canvas #heroCanvas class="orb-canvas"></canvas>
+
+  <div class="hero-content">
+    <div class="hero-chip">
+      <span class="chip-icon"></span> {{ langService.t.hero_tag }}
+    </div>
+
+    <h1 class="hero-title">
+      {{ langService.t.hero_title_1 }}
+      <span class="highlight-text">LATAM</span>
+      <span class="highlight-year">2026</span>
+    </h1>
+
+    <h2 class="subtitle">{{ langService.t.hero_subtitle }}</h2>
+
+    <div class="data-badge date-display">
+      <i class="fa-regular fa-calendar"></i>
+      <span>{{ langService.t.hero_date }}</span>
+    </div>
+
+    <div class="quantum-timer">
+      <div class="time-prism">
+        <div class="prism-content">
+          <span class="num">{{ days }}</span>
+          <small class="label">{{ langService.t.time_d }}</small>
+        </div>
+        <div class="prism-glow"></div>
+      </div>
+
+      <div class="timer-separator">:</div>
+
+      <div class="time-prism">
+        <div class="prism-content">
+          <span class="num">{{ hours }}</span>
+          <small class="label">{{ langService.t.time_h }}</small>
+        </div>
+        <div class="prism-glow"></div>
+      </div>
+
+      <div class="timer-separator">:</div>
+
+      <div class="time-prism">
+        <div class="prism-content">
+          <span class="num">{{ minutes }}</span>
+          <small class="label">{{ langService.t.time_m }}</small>
+        </div>
+        <div class="prism-glow"></div>
+      </div>
+
+      <div class="timer-separator">:</div>
+
+      <div class="time-prism secs-prism">
+        <div class="prism-content">
+          <span class="num highlight-num">{{ seconds }}</span>
+          <small class="label">{{ langService.t.time_s }}</small>
+        </div>
+        <div class="prism-glow"></div>
+      </div>
+    </div>
+
+    <div class="buttons">
+  <button class="cta-main btn-glow" routerLink="/registro">
+    {{ langService.t.hero_btn }}
+  </button>
+</div>
+  </div>
+</section>

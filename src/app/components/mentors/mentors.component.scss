@@ -1,0 +1,154 @@
+.mentors-section {
+  padding: 80px 0;
+  background-color: #0b1120;
+}
+
+.section-title {
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  font-weight: 800;
+
+  span { color: #00B5E2; }
+  small { font-size: 1rem; color: #555; letter-spacing: 2px; }
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tech-card {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  background: rgba(11, 17, 32, 0.8);
+  border: 1px solid rgba(0, 181, 226, 0.2);
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  transition: 0.3s;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: #00B5E2;
+    box-shadow: 0 0 20px rgba(0, 181, 226, 0.2);
+
+    .scanner-line { animation: scan 1.5s linear infinite; opacity: 1; }
+    .info { transform: translateY(0); }
+    .img-container img { filter: grayscale(0%); transform: scale(1.1); }
+
+    /* NUEVO: al hover, se expande el panel inferior */
+    .info { max-height: 240px; }
+    .bio { opacity: 1; max-height: 140px; }
+  }
+}
+
+.img-container {
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: grayscale(100%) contrast(1.1);
+    transition: 0.5s;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 46, 99, 0.2), rgba(11, 17, 32, 1));
+  }
+}
+
+.scanner-line {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 2px;
+  background: #00B5E2;
+  box-shadow: 0 0 10px #00B5E2;
+  z-index: 2;
+  opacity: 0;
+}
+
+@keyframes scan {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.info {
+  position: absolute;
+  bottom: 0; left: 0; width: 100%;
+  padding: 15px;
+  z-index: 3;
+  background: rgba(0, 46, 99, 0.95);
+  border-top: 1px solid #00B5E2;
+
+  transform: translateY(0);
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* NUEVO: altura normal (sin hover) */
+  max-height: 130px;
+  overflow: hidden;
+
+  h3 {
+    margin: 0; color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .role {
+    color: #00B5E2;
+    margin: 5px 0 10px;
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+
+  .company-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: #ccc;
+  }
+}
+
+/* NUEVO: bio largo con scroll */
+.bio {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  line-height: 1.25;
+  color: #e6e6e6;
+
+  white-space: pre-line;  /* respeta saltos de línea en template literals */
+
+  opacity: 0;
+  max-height: 0;
+  overflow-y: auto;
+  transition: 0.25s ease;
+  padding-right: 6px;
+}
+
+/* Scroll discreto (opcional) */
+.bio::-webkit-scrollbar { width: 4px; }
+.bio::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.35);
+  border-radius: 4px;
+}
+
+.corner { position: absolute; width: 15px; height: 15px; border: 2px solid transparent; z-index: 5; transition: 0.3s; }
+.tech-card:hover {
+  .top-left { border-top: 2px solid #00B5E2; border-left: 2px solid #00B5E2; top: 0; left: 0; }
+  .bottom-right { border-bottom: 2px solid #00B5E2; border-right: 2px solid #00B5E2; bottom: 0; right: 0; }
+}
