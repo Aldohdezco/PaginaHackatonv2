@@ -47,6 +47,24 @@
     .info { max-height: 240px; }
     .bio { opacity: 1; max-height: 140px; }
   }
+  
+  .bio-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 20px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
 }
 
 .img-container {

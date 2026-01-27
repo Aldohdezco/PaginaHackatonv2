@@ -22,14 +22,22 @@
           <h3>{{ person.name }}</h3>
           <p class="role">{{ person.role }}</p>
           <div class="company-badge">
-            <i class="fa-solid fa-microphone-lines"></i> {{ person.company }}
+            <i class="fa-solid fa-user-gear"></i> {{ person.company }}
           </div>
+
+          <p class="bio" *ngIf="person.bioKey">
+            {{ langService.t[person.bioKey] }}
+          </p>
+        </div>
+
+        <!-- BIO (hover) -->
+        <div class="bio-overlay" *ngIf="person.bioKey">
+          {{ langService.t[person.bioKey] }}
         </div>
       </div>
     </div>
 
     <div style="height: 120px;"></div>
-
 
     <h2 class="section-title">
       <span>{{ langService.t.speakers_title }}</span>
@@ -55,12 +63,16 @@
             <i class="fa-solid fa-user-gear"></i> {{ person.company }}
           </div>
         </div>
+
+        <!-- BIO (hover) -->
+        <div class="bio-overlay" *ngIf="person.bioKey">
+          {{ langService.t[person.bioKey] }}
+        </div>
       </div>
     </div>
 
     <div style="height: 120px;"></div>
 
-    <!-- 3) Jueces -->
     <h2 class="section-title">
       <span>{{ langService.t.judges_title }}</span>
     </h2>
@@ -84,6 +96,11 @@
           <div class="company-badge">
             <i class="fa-solid fa-user-gear"></i> {{ person.company }}
           </div>
+        </div>
+
+        <!-- BIO (hover) -->
+        <div class="bio-overlay" *ngIf="person.bioKey">
+          {{ langService.t[person.bioKey] }}
         </div>
       </div>
     </div>

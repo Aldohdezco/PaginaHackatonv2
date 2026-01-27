@@ -14,6 +14,7 @@ export class LanguageService {
     return this.translations[this.currentLang()];
   }
 
+
   private translations: any = {
     es: {
       // NAV
@@ -119,7 +120,10 @@ export class LanguageService {
       award_title: 'RECONOCIMIENTOS',
       aw_1_title: 'Certificación OQI', aw_1_desc: 'Diploma oficial avalado por el Open Quantum Institute.',
       aw_2_title: 'Estancias Cuánticas', aw_2_desc: 'Oportunidad de estancias en empresas y escuelas con computadoras cuánticas reales',
-      aw_3_title: 'Networking Global', aw_3_desc: 'Conexión directa con líderes del CERN y la industria.'
+      aw_3_title: 'Networking Global', aw_3_desc: 'Conexión directa con líderes del CERN y la industria.',
+
+      // BIOS
+      bio_christen: 'J. Jorge Christen es Ingeniero en Computación Cum Laude por la UNAM, con Maestría en Ingeniería Electrónica por el Instituto Internacional de Eindhoven y estudios en Negocios Internacionales por el ITAM. Cuenta con más de 40 años de experiencia en la industria tecnológica y más de 38 años en docencia de posgrado. Es especialista en Computación Cuántica certificado por el MIT, creador de la metodología ENSAR y del IQC-Kit, y actualmente se dedica a la consultoría y enseñanza en Computación Cuántica e Inteligencia Artificial.'
     },
     en: {
       // NAV
@@ -225,7 +229,11 @@ export class LanguageService {
       award_title: 'AWARDS & RECOGNITION',
       aw_1_title: 'OQI Certification', aw_1_desc: 'Official diploma endorsed by the Open Quantum Institute.',
       aw_2_title: 'Quantum Internships', aw_2_desc: 'Internship opportunities at companies and schools with real quantum computers.',
-      aw_3_title: 'Global Networking', aw_3_desc: 'Direct connection with leaders from CERN and the industry.'
+      aw_3_title: 'Global Networking', aw_3_desc: 'Direct connection with leaders from CERN and the industry.',
+
+      // BIOS
+      bio_christen: 'J. Jorge Christen is a Cum Laude Computer Engineer from UNAM, with a Master’s degree in Electronic Engineering from the International Institute of Eindhoven and studies in International Business at ITAM. He has over 40 years of experience in the technology industry and more than 38 years teaching at the graduate level. He is an MIT-certified Quantum Computing specialist, creator of the ENSAR methodology and the IQC-Kit, and currently works in consulting and teaching Quantum Computing and Artificial Intelligence.'
     }
   };
+
 }
