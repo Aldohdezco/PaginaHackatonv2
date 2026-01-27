@@ -22,27 +22,31 @@ export class MentorsComponent {
  
   defaultImage =
     'https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg';
-
+  
+  imagenMariaIsabel = 'https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/f1c28148da0345abe2da410f8fe09dc7b32a181a/MariaIsabelPedrazaMorales.png';
+  imagenOliviaMaricela= 'https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/4096f9d7093f5594e7f35c4cdd968fa6d0012b65/OliviaMaricelat.png';
+  imagenRicardoTovar= 'https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/1eed4d63feddd05b8ca6cc70a66cecc7c702463a/VillegasTovar.jpg';
+  imagenArturoFernandez= 'https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/2dddc0464894f982dff650b19e4d76ab1c62df0a/ArturoFernandez1.jpeg';
   speakersList: PersonCard[] = [
     {
       name: 'Isabel Pedraza Morales',
       role: 'Profesor Investigador - CIIEC',
       company: 'VIEP-BUAP',
-      image: 'public/images/Test.jpg'
+      image: this.imagenMariaIsabel
     },
-    { name: 'Arturo Fernández Téllez', role: 'ALICE-CERN / Dir. Gral. Div. Científica', company: 'BUAP', image: this.defaultImage },
-    { name: 'Dr. Ricardo Villegas Tovar', role: 'Dir. Centro de Educación Internacional', company: 'BUAP', image: this.defaultImage },
+    { name: 'Arturo Fernández Téllez', role: 'ALICE-CERN / Dir. Gral. Div. Científica', company: 'BUAP', image: this.imagenArturoFernandez },
+    { name: 'Dr. Ricardo Villegas Tovar', role: 'Dir. Centro de Educación Internacional', company: 'BUAP', image: this.imagenRicardoTovar},
     { name: 'David Pinto Avendaño', role: 'Dir. de Innovación y Transferencia', company: 'BUAP', image: this.defaultImage },
     { name: 'Enrique Morales Aguilar', role: 'Facultad de Ciencias de la Electrónica', company: 'BUAP', image: this.defaultImage },
     { name: 'Jimena Olveres Montiel', role: 'Centro de Estudios en Computación Avanzada', company: 'UNAM', image: this.defaultImage },
     { name: 'Boris Escalante Ramírez', role: 'Facultad de Ingeniería', company: 'UNAM', image: this.defaultImage },
     { name: 'Karina Garay Palmett', role: 'Departamento de Óptica', company: 'CICESE', image: this.defaultImage },
     { name: 'Francisco Domínguez', role: 'Departamento de Óptica', company: 'CICESE', image: this.defaultImage },
-    { name: 'Olivia Maricela Barrón Cano', role: 'Directora del Departamento de Computación e Ingeniería Industrial', company: 'Universidad de Monterrey', image: this.defaultImage },
+    { name: 'Olivia Maricela Barrón Cano', role: 'Directora del Departamento de Computación e Ingeniería Industrial', company: 'Universidad de Monterrey', image: this.imagenOliviaMaricela},
     { name: 'J. Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'UDEM', image: this.defaultImage,
       bio: `J. Jorge Christen es Ingeniero en Computación Cum Laude por la UNAM, con Maestría en Ingeniería Electrónica por el Instituto Internacional de Eindhoven y estudios en Negocios Internacionales por el ITAM. Cuenta con más de 40 años de experiencia en la industria tecnológica y más de 38 años en docencia de posgrado. Es especialista en Computación Cuántica certificado por el MIT, creador de la metodología ENSAR y del IQC-Kit, y actualmente se dedica a la consultoría y enseñanza en Computación Cuántica e Inteligencia Artificial.`
     },
-    { name: 'Salvador E. Venegas', role: 'Investigador', company: 'Tecnológico de Monterrey', image: this.defaultImage }
+    { name: 'Salvador Eduardo Venegas', role: 'Investigador', company: 'Tecnológico de Monterrey', image: this.defaultImage }
   ];
 
   mentorsList: PersonCard[] = [
