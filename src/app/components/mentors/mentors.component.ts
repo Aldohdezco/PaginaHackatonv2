@@ -41,7 +41,7 @@ export class MentorsComponent {
     { name: 'Dr. Arturo Fernández Téllez', role: 'ALICE-CERN / Director General de la Divulgación Científica', company: 'BUAP', image: this.imagenArturoFernandez },
     { name: 'Dr. Ricardo Villegas Tovar', role: 'Director del Centro de Educación Internacional', company: 'BUAP', image: this.imagenRicardoTovar},
     { name: 'Dr. David Pinto Avendaño', role: 'Director de Innovación y Transferencia', company: 'BUAP', image: this.defaultImage },
-    { name: 'M.I. Enrique Morales Aguilar', role: 'Facultad de Ciencias de la Computació/Facultad de Ciencias de la Electrónica', company: 'BUAP', image: this.imagenEnriqueMorales,
+    { name: 'M.I. Enrique Morales Aguilar', role: 'Facultad de Ciencias de la Computación / Facultad de Ciencias de la Electrónica', company: 'BUAP', image: this.imagenEnriqueMorales,
       bioKey: 'bio_enrique'
     },
     { name: 'Jimena Olveres Montiel', role: 'Centro de Estudios en Computación Avanzada', company: 'UNAM', image: this.defaultImage },

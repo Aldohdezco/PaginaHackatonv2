@@ -20,11 +20,12 @@
 
         <div class="info">
           <h3>{{ person.name }}</h3>
+          <br>
           <p class="role">{{ person.role }}</p>
           <div class="company-badge">
             <i class="fa-solid fa-user-gear"></i> {{ person.company }}
           </div>
-
+          <br>
           <p class="bio" *ngIf="person.bioKey">
             {{ langService.t[person.bioKey] }}
           </p>

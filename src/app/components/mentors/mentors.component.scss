@@ -43,7 +43,6 @@
     .info { transform: translateY(0); }
     .img-container img { filter: grayscale(0%); transform: scale(1.1); }
 
-    /* NUEVO: al hover, se expande el panel inferior */
     .info { max-height: 240px; }
     .bio { opacity: 1; max-height: 140px; }
   }
@@ -114,7 +113,7 @@
   transform: translateY(0);
   transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-  bottom: 0;
+  bottom: 10px;
   transform: translateY(65%);  // <- oculta gran parte del panel
   transition: transform 0.35s ease;
 
