@@ -29,7 +29,7 @@ export class MentorsComponent {
   imagenArturoFernandez= 'https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/2dddc0464894f982dff650b19e4d76ab1c62df0a/ArturoFernandez1.jpeg';
   imagenEnriqueMorales='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/9186668362c3c191a26875b1225aefeec2a1dc47/EnriqueMorales.jpg';
   imagenSalvador='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/0f5252cb557b59471dcf3643aeb26653b2fa5025/SalvadorElias.jpg?raw=true';
-
+  imagenJorgeChriste='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/2af759a4caa4ef56e85412bc58772c8d54823250/JorgeChristen.jpg';
 
   speakersList: PersonCard[] = [
     {
@@ -47,10 +47,12 @@ export class MentorsComponent {
     { name: 'Karina Garay Palmett', role: 'Departamento de Óptica', company: 'CICESE', image: this.defaultImage },
     { name: 'Francisco Domínguez', role: 'Departamento de Óptica', company: 'CICESE', image: this.defaultImage },
     { name: 'Olivia Maricela Barrón Cano', role: 'Directora del Departamento de Computación e Ingeniería Industrial', company: 'Universidad de Monterrey', image: this.imagenOliviaMaricela},
-    { name: 'J. Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'UDEM', image: this.defaultImage,
+    { name: 'J. Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'UDEM', image: this.imagenJorgeChriste,
       bioKey: 'bio_christen'
     },
-    { name: 'Salvador E. Venegas-Andraca', role: 'Departamento Regional de Computación CDMX', company: 'Escuela de Ingeniería y Ciencias - Tecnológico de Monterrey', image: this.imagenSalvador }
+    { name: 'Salvador E. Venegas-Andraca', role: 'Departamento Regional de Computación CDMX', company: 'Escuela de Ingeniería y Ciencias - Tecnológico de Monterrey', image: this.imagenSalvador,
+      bioKey: 'bio_salvador'
+    }
   ];
 
 
