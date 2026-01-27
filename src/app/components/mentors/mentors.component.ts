@@ -28,7 +28,7 @@ export class MentorsComponent {
   imagenRicardoTovar= 'https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/1eed4d63feddd05b8ca6cc70a66cecc7c702463a/VillegasTovar.jpg';
   imagenArturoFernandez= 'https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/2dddc0464894f982dff650b19e4d76ab1c62df0a/ArturoFernandez1.jpeg';
   imagenEnriqueMorales='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/9186668362c3c191a26875b1225aefeec2a1dc47/EnriqueMorales.jpg';
-
+  imagenSalvador='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/0f5252cb557b59471dcf3643aeb26653b2fa5025/SalvadorElias.jpg?raw=true';
 
 
   speakersList: PersonCard[] = [
@@ -38,10 +38,10 @@ export class MentorsComponent {
       company: 'VIEP-BUAP',
       image: this.imagenMariaIsabel
     },
-    { name: 'Arturo Fernández Téllez', role: 'ALICE-CERN / Director General de la Divulgación Científica', company: 'BUAP', image: this.imagenArturoFernandez },
+    { name: 'Dr. Arturo Fernández Téllez', role: 'ALICE-CERN / Director General de la Divulgación Científica', company: 'BUAP', image: this.imagenArturoFernandez },
     { name: 'Dr. Ricardo Villegas Tovar', role: 'Director del Centro de Educación Internacional', company: 'BUAP', image: this.imagenRicardoTovar},
-    { name: 'David Pinto Avendaño', role: 'Director de Innovación y Transferencia', company: 'BUAP', image: this.defaultImage },
-    { name: 'Enrique Morales Aguilar', role: 'Facultad de Ciencias de la Computació/Facultad de Ciencias de la Electrónica', company: 'BUAP', image: this.imagenEnriqueMorales },
+    { name: 'Dr. David Pinto Avendaño', role: 'Director de Innovación y Transferencia', company: 'BUAP', image: this.defaultImage },
+    { name: 'M.I. Enrique Morales Aguilar', role: 'Facultad de Ciencias de la Computació/Facultad de Ciencias de la Electrónica', company: 'BUAP', image: this.imagenEnriqueMorales },
     { name: 'Jimena Olveres Montiel', role: 'Centro de Estudios en Computación Avanzada', company: 'UNAM', image: this.defaultImage },
     { name: 'Boris Escalante Ramírez', role: 'Facultad de Ingeniería', company: 'UNAM', image: this.defaultImage },
     { name: 'Karina Garay Palmett', role: 'Departamento de Óptica', company: 'CICESE', image: this.defaultImage },
@@ -50,7 +50,7 @@ export class MentorsComponent {
     { name: 'J. Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'UDEM', image: this.defaultImage,
       bioKey: 'bio_christen'
     },
-    { name: 'Salvador E. Venegas-Andraca', role: 'Departamento Regional de Computación CDMX', company: 'Escuela de Ingeniería y Ciencias - Tecnológico de Monterrey', image: this.defaultImage }
+    { name: 'Salvador E. Venegas-Andraca', role: 'Departamento Regional de Computación CDMX', company: 'Escuela de Ingeniería y Ciencias - Tecnológico de Monterrey', image: this.imagenSalvador }
   ];
 
 
