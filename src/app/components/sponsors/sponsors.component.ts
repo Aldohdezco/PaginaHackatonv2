@@ -20,6 +20,7 @@ export class SponsorsComponent {
     { name: 'TEC', img: '/images/tec_mont.webp', url: 'https://tec.mx/es' },
     { name: 'UNAM', img: '/images/UNAM.png', url: 'https://www.unam.mx/' },
     { name: 'UDEM', img: '/images/UANL.png', url: 'https://www.udem.mx/' },
+    {name: 'CICESE', img: '/images/cicese.png', url: 'https://www.cicese.edu.mx/' },
   ];
 
   // GRUPO 2: PATROCINADORES

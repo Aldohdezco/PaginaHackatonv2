@@ -38,10 +38,13 @@ export class MentorsComponent {
       name: 'Dra. Isabel Pedraza Morales',
       role: 'Profesor Investigador - CIIEC',
       company: 'VIEP-BUAP',
-      image: this.imagenMariaIsabel
+      image: this.imagenMariaIsabel,
+      bioKey: 'bio_isabel'
     },
-    { name: 'Dr. Arturo Fernández Téllez', role: 'ALICE-CERN / Director General de la Divulgación Científica', company: 'BUAP', image: this.imagenArturoFernandez },
-    { name: 'Dr. Ricardo Villegas Tovar', role: 'Director del Centro de Educación Internacional', company: 'BUAP', image: this.imagenRicardoTovar},
+    { name: 'Dr. Arturo Fernández Téllez', role: 'ALICE-CERN / Director General de la Divulgación Científica', company: 'BUAP', image: this.imagenArturoFernandez,
+      bioKey: 'bio_arturo'
+    },
+    { name: 'Dr. Ricardo Villegas Tovar', role: 'Director del Centro de Educación Internacional', company: 'BUAP', image: this.imagenRicardoTovar, bioKey: 'bio_ricardo'},
     { name: 'Dr. David Pinto Avendaño', role: 'Director de Innovación y Transferencia', company: 'BUAP', image: this.imagenDavidPinto,
       bioKey: 'bio_david'
     },
@@ -50,10 +53,10 @@ export class MentorsComponent {
     },
     { name: 'Dra. Jimena Olveres Montiel', role: 'Centro de Estudios en Computación Avanzada', company: 'UNAM', image: this.defaultImage },
     { name: 'Dr. Boris Escalante Ramírez', role: 'Facultad de Ingeniería', company: 'UNAM', image: this.defaultImage },
-    { name: 'Dra. Karina Garay Palmett', role: 'Departamento de Óptica', company: 'CICESE', image: this.imagenKarina },
+    { name: 'Dra. Karina Garay Palmett', role: 'Departamento de Óptica', company: 'CICESE', image: this.imagenKarina, bioKey: 'bio_karina'},
     { name: 'Dr.Francisco Domínguez', role: 'Departamento de Óptica', company: 'CICESE', image: this.defaultImage },
     { name: 'Dra. Olivia Maricela Barrón Cano', role: 'Directora del Departamento de Computación e Ingeniería Industrial', company: 'Universidad de Monterrey', image: this.imagenOliviaMaricela},
-    { name: 'Dr. J. Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'Universidad de Monterrey', image: this.imagenJorgeChriste,
+    { name: 'M. I. Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'Universidad de Monterrey', image: this.imagenJorgeChriste,
       bioKey: 'bio_christen'
     },
     { name: 'Dr. Salvador E. Venegas-Andraca', role: 'Professor of Computer Science', company: 'Tecnológico de Monterrey', image: this.imagenSalvador,
@@ -84,7 +87,7 @@ export class MentorsComponent {
     { name: 'Jorge Luis Apatiga Sánchez', role: 'Mentor', company: 'Facultad de Ciencias - UNAM', image: this.defaultImage },
     { name: 'Dra. Jimena Olveres Montiel', role: 'Juez', company: 'UNAM', image: this.defaultImage },
     { name: 'Dr. Boris Escalante Ramírez', role: 'Juez', company: 'UNAM', image: this.defaultImage },
-    { name: 'Dr. J. Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'UDEM', image: this.imagenJorgeChriste,
+    { name: 'M.I. Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'UDEM', image: this.imagenJorgeChriste,
       bioKey: 'bio_christen'
     },
   ];
