@@ -30,6 +30,8 @@ export class MentorsComponent {
   imagenEnriqueMorales='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/9186668362c3c191a26875b1225aefeec2a1dc47/EnriqueMorales.jpg';
   imagenSalvador='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/0f5252cb557b59471dcf3643aeb26653b2fa5025/SalvadorElias.jpg?raw=true';
   imagenJorgeChriste='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/2af759a4caa4ef56e85412bc58772c8d54823250/JorgeChristen.jpg';
+  imagenKarina='https://github.com/QuikeStifler/PaginaHackathon2026/blob/3015dc7d957b8a11fb1f1aefe667e59013d876ce/Karina.jpeg?raw=true';
+  imagenDavidPinto='https://github.com/QuikeStifler/PaginaHackathon2026/blob/3015dc7d957b8a11fb1f1aefe667e59013d876ce/davidpinto1.jpg?raw=true';
 
   speakersList: PersonCard[] = [
     {
@@ -40,16 +42,18 @@ export class MentorsComponent {
     },
     { name: 'Dr. Arturo Fernández Téllez', role: 'ALICE-CERN / Director General de la Divulgación Científica', company: 'BUAP', image: this.imagenArturoFernandez },
     { name: 'Dr. Ricardo Villegas Tovar', role: 'Director del Centro de Educación Internacional', company: 'BUAP', image: this.imagenRicardoTovar},
-    { name: 'Dr. David Pinto Avendaño', role: 'Director de Innovación y Transferencia', company: 'BUAP', image: this.defaultImage },
+    { name: 'Dr. David Pinto Avendaño', role: 'Director de Innovación y Transferencia', company: 'BUAP', image: this.imagenDavidPinto,
+      bioKey: 'bio_david'
+    },
     { name: 'M.I. Enrique Morales Aguilar', role: 'Facultad de Ciencias de la Computación / Facultad de Ciencias de la Electrónica', company: 'BUAP', image: this.imagenEnriqueMorales,
       bioKey: 'bio_enrique'
     },
     { name: 'Dra. Jimena Olveres Montiel', role: 'Centro de Estudios en Computación Avanzada', company: 'UNAM', image: this.defaultImage },
     { name: 'Dr. Boris Escalante Ramírez', role: 'Facultad de Ingeniería', company: 'UNAM', image: this.defaultImage },
-    { name: 'Dra. Karina Garay Palmett', role: 'Departamento de Óptica', company: 'CICESE', image: this.defaultImage },
+    { name: 'Dra. Karina Garay Palmett', role: 'Departamento de Óptica', company: 'CICESE', image: this.imagenKarina },
     { name: 'Dr.Francisco Domínguez', role: 'Departamento de Óptica', company: 'CICESE', image: this.defaultImage },
     { name: 'Dra. Olivia Maricela Barrón Cano', role: 'Directora del Departamento de Computación e Ingeniería Industrial', company: 'Universidad de Monterrey', image: this.imagenOliviaMaricela},
-    { name: 'Dr. J. Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'UDEM', image: this.imagenJorgeChriste,
+    { name: 'Dr. J. Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'Universidad de Monterrey', image: this.imagenJorgeChriste,
       bioKey: 'bio_christen'
     },
     { name: 'Dr. Salvador E. Venegas-Andraca', role: 'Professor of Computer Science', company: 'Tecnológico de Monterrey', image: this.imagenSalvador,
