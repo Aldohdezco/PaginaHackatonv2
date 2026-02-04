@@ -23,6 +23,8 @@ export class MentorsComponent {
   defaultImage =
     'https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg';
   
+  imagenBoris='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/4f138356ac670cf902ede4c48fe437a955681b92/Boris.png';
+  imagenJimena='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/11879a0b107010a664d4f50cb816d189def0c434/Jimena.png';
   imagenMariaIsabel = 'https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/f1c28148da0345abe2da410f8fe09dc7b32a181a/MariaIsabelPedrazaMorales.png';
   imagenOliviaMaricela= 'https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/4096f9d7093f5594e7f35c4cdd968fa6d0012b65/OliviaMaricelat.png';
   imagenRicardoTovar= 'https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/1eed4d63feddd05b8ca6cc70a66cecc7c702463a/VillegasTovar.jpg';
@@ -41,7 +43,7 @@ export class MentorsComponent {
       image: this.imagenMariaIsabel,
       bioKey: 'bio_isabel'
     },
-    { name: 'Dr. Arturo Fernández Téllez', role: 'ALICE-CERN / Director General de la Divulgación Científica', company: 'BUAP', image: this.imagenArturoFernandez,
+    { name: 'Dr. Arturo Fernández Téllez', role: 'ALICE-CERN / FCFM', company: 'BUAP', image: this.imagenArturoFernandez,
       bioKey: 'bio_arturo'
     },
     { name: 'Dr. Ricardo Villegas Tovar', role: 'Director del Centro de Educación Internacional', company: 'BUAP', image: this.imagenRicardoTovar, bioKey: 'bio_ricardo'},
@@ -51,8 +53,12 @@ export class MentorsComponent {
     { name: 'M.I. Enrique Morales Aguilar', role: 'Facultad de Ciencias de la Computación / Facultad de Ciencias de la Electrónica', company: 'BUAP', image: this.imagenEnriqueMorales,
       bioKey: 'bio_enrique'
     },
-    { name: 'Dra. Jimena Olveres Montiel', role: 'Centro de Estudios en Computación Avanzada', company: 'UNAM', image: this.defaultImage },
-    { name: 'Dr. Boris Escalante Ramírez', role: 'Facultad de Ingeniería', company: 'UNAM', image: this.defaultImage },
+    { name: 'Dra. Jimena Olveres Montiel', role: 'Facultad de Ingeniería', company: 'UNAM', image: this.imagenJimena,
+      bioKey: 'bio_jimena'
+    },
+    { name: 'Dr. Boris Escalante Ramírez', role: 'Facultad de Ingeniería', company: 'UNAM', image: this.imagenBoris,
+      bioKey: 'bio_boris'
+    },
     { name: 'Dra. Karina Garay Palmett', role: 'Departamento de Óptica', company: 'CICESE', image: this.imagenKarina, bioKey: 'bio_karina'},
     { name: 'Dr.Francisco Domínguez', role: 'Departamento de Óptica', company: 'CICESE', image: this.defaultImage },
     { name: 'Dra. Olivia Maricela Barrón Cano', role: 'Directora del Departamento de Computación e Ingeniería Industrial', company: 'Universidad de Monterrey', image: this.imagenOliviaMaricela},
@@ -64,19 +70,16 @@ export class MentorsComponent {
     }
   ];
 
-
+  //Ponentes
   mentorsList: PersonCard[] = [
-    { name: 'Tian Zhong', role: 'Speaker', company: 'University of Chicago', image: this.defaultImage },
     { name: 'Diana Franklin', role: 'Speaker', company: 'University of Chicago', image: this.defaultImage },
     { name: 'Guohua Sun', role: 'Speaker', company: 'IPN - CIC', image: this.defaultImage },
     { name: 'Pablo Barberis', role: 'Speaker', company: 'UNAM - IIMAS', image: this.defaultImage },
-    { name: 'Francisco Valdés Souto', role: 'Speaker', company: 'UNAM - F. Ciencias', image: this.defaultImage },
-    { name: 'Janeth de Anda Gil', role: 'Speaker', company: 'IPN - CIC', image: this.defaultImage },
     { name: 'Alexandra de Castro', role: 'Speaker', company: 'Quandela', image: this.defaultImage },
     { name: 'Camile Coti', role: 'Speaker', company: 'ETS - Montreal', image: this.defaultImage },
-    { name: 'Areli Yesareth Guerrero', role: 'Speaker', company: 'IPN - CIC', image: this.defaultImage },
     { name: 'Sergio Boixo', role: 'Speaker', company: 'Google', image: this.defaultImage },
-    { name: 'Gregory Shutko', role: 'Speaker', company: 'QCentroid', image: this.defaultImage }
+    { name: 'Gregory Shutko', role: 'Speaker', company: 'QCentroid', image: this.defaultImage },
+    { name: 'Claudia Zendejas Morales', role: 'Speaker', company: 'UNAM', image: this.defaultImage }
   ];
 
   mentorsAndJudgesList: PersonCard[] = [
