@@ -16,7 +16,7 @@ export class SponsorsComponent {
   organizers = [
     { name: 'Open Quantum Institute', img: '/images/oqi.png', url: 'https://open-quantum-institute.cern/' },
     { name: 'BUAP', img: '/images/logo-buap.webp', url: 'https://www.buap.mx/' },
-    { name: 'UAM', img: '/images/uam.png', url: 'https://www.uam.mx/' },
+   // { name: 'UAM', img: '/images/uam.png', url: 'https://www.uam.mx/' },
     { name: 'TEC', img: '/images/tec_mont.webp', url: 'https://tec.mx/es' },
     { name: 'UNAM', img: '/images/UNAM.png', url: 'https://www.unam.mx/' },
     { name: 'UDEM', img: '/images/UANL.png', url: 'https://www.udem.mx/' },
