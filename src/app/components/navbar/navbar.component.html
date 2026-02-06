@@ -15,6 +15,7 @@
         <li routerLink="/" (click)="closeMenu()">{{ langService.t.nav_home }}</li>
         <li routerLink="/premios" routerLinkActive="active" (click)="closeMenu()">{{ langService.t.nav_awards }}</li>
         <li routerLink="/registro" routerLinkActive="active" (click)="closeMenu()">{{ langService.t.nav_req }}</li>
+        <li routerLink="/cursos" routerLinkActive="active" (click)="closeMenu()">{{ langService.t.nav_courses }}</li>
       </ul>
 
       <button class="lang-btn" (click)="langService.toggleLang(); closeMenu()">

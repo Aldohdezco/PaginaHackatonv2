@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://qworld.murointeractivo.com/api'
+  apiUrl: 'https://oqi-hackaton.buap.mx/api'
 };
