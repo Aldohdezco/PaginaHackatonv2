@@ -26,14 +26,14 @@ export class LanguageService {
       // HERO
       hero_tag: 'EVENTO INTERNACIONAL DE INNOVACIÓN',
       hero_title_1: 'HACKATHON',
-      hero_subtitle: 'QUANTUM FOR WATER SYSTEM SOLUTIONS IN BIG CITIES',
+      hero_subtitle: 'QUANTUM SOLUTIONS FOR WATER CHALLENGES IN BIG CITIES',
       hero_date: '29 JUN - 01 JUL, 2026 | PUEBLA, MÉXICO',
       time_d: 'Días', time_h: 'Horas', time_m: 'Min', time_s: 'Seg',
       hero_btn: 'REGISTRARTE',
 
       // ABOUT
       about_title: 'EL DESAFÍO',
-      about_sub: 'Quantum for Water System Solutions',
+      about_sub: 'Quantum Solutions for Water Challenges in Big Cities',
       about_desc: 'Las grandes ciudades enfrentan crisis hídricas. En el OQI Hackathon 2026, utilizamos el poder de la Computación Cuántica para modelar soluciones hídricas',
       stat_stages: 'Etapas',
       stat_countries: 'Países',
@@ -115,7 +115,7 @@ export class LanguageService {
       lbl_SDG_goals: '¿En cuál de los Objetivos de Desarrollo Sostenible (ODS) estaría más interesado en este proyecto? (Elija 2)',
 
 
-      btn_upload: 'Seleccionar Archivo', 
+      btn_upload: 'Comprobante de estudios con fotografía', 
       no_file: 'Ningún archivo seleccionado', 
       btn_send: 'ENVIAR SOLICITUD',
       award_title: 'RECONOCIMIENTOS',
@@ -136,7 +136,7 @@ export class LanguageService {
       bio_david:'El Dr. David Eduardo Pinto Avendaño es investigador, líder académico y estratega de innovación con amplia experiencia en inteligencia artificial, cómputo avanzado y transferencia tecnológica. Actualmente dirige la Dirección de Innovación y Transferencia del Conocimiento (DITCo) de la Benemérita Universidad Autónoma de Puebla (BUAP), donde impulsa iniciativas que conectan investigación de vanguardia, colaboración con la industria y desarrollo tecnológico aplicado. Su trabajo abarca inteligencia artificial, ciencia de datos, sistemas inteligentes y tecnologías emergentes, con énfasis en traducir el conocimiento científico en impacto real. Ha coordinado y participado en múltiples proyectos nacionales e internacionales de I+D, incluyendo plataformas, laboratorios experimentales y ecosistemas de innovación alineados con la Industria 4.0. En este Hackathon de Computación Cuántica, aporta una visión estratégica sobre paradigmas de cómputo avanzado y la adopción responsable de tecnologías disruptivas para abordar desafíos científicos, industriales y sociales complejos.',
 
       // Courses
-      course_title_1: 'Cursos de Certificación QC del Hackathon QWorld OQI (Dos Cursos) | 19–28 de mayo de 2025 (evaluaciones con fecha límite el 16 de junio) o 4–13 de agosto de 2025 (evaluaciones con fecha límite el 4 de septiembre)',
+      course_title_1: 'Cursos de Certificación QC del Hackathon QWorld OQI (Dos Cursos) | 19–28 de mayo de 2026 y del 4 al 13 de junio de 2026 Fecha TENTATIVA',
 
       course_desc_1: 'Para garantizar que los participantes de los hackathons apoyados por el ',
 
@@ -195,9 +195,9 @@ export class LanguageService {
 
       course_desc_21: 'Se espera que los participantes sigan los materiales del taller y completen las tareas de manera independiente. El curso será a tu propio ritmo y se llevará a cabo en las siguientes fechas:',
 
-      course_desc_22: '1. Del 19 al 28 de mayo de 2025',
+      course_desc_22: '1. Del 19 al 28 de mayo de 2026',
       course_desc_23: 'y',
-      course_desc_24: '2. Del 4 al 13 de agosto de 2025',
+      course_desc_24: '2. Del 4 al 13 de junio de 2026',
 
       course_title_5: 'QBronze + QNickel',
 
@@ -269,7 +269,7 @@ export class LanguageService {
 
       // ABOUT
       about_title: 'THE CHALLENGE',
-      about_sub: 'Quantum for Water System Solutions',
+      about_sub: 'Quantum Solutions for Water Challenges in Big Cities',
       about_desc: 'Major cities face water crises. At the OQI Hackathon 2026, we use Quantum Computing to model water solutions',
       stat_stages: 'Stages',
       stat_countries: 'Countries',
@@ -372,7 +372,7 @@ export class LanguageService {
       bio_david:'Dr. David Eduardo Pinto Avendaño is a researcher, academic leader, and innovation strategist with extensive experience in artificial intelligence, advanced computing, and technology transfer. He currently serves as Director of the Directorate of Innovation and Knowledge Transfer (DITCo) at the Benemérita Universidad Autónoma de Puebla (BUAP), where he leads initiatives that connect cutting‑edge research, industry collaboration, and applied technological development. His work spans artificial intelligence, data science, intelligent systems, and emerging technologies, with a focus on translating scientific knowledge into real‑world impact. He has coordinated and participated in multiple national and international R&D projects, including research‑driven platforms, experimental laboratories, and innovation ecosystems aligned with Industry 4.0. In this Quantum Computing Hackathon, he contributes a strategic perspective on advanced computing paradigms and the responsible adoption of disruptive technologies to address complex scientific, industrial, and societal challenges.',
 
       // Courses
-      course_title_1: 'QWorld OQI Hackathon QC Certification Courses (Two Courses) | May 19-28, 2025 (assessments due June 16) or August 4-13, 2025 (assessments due September 4)',
+      course_title_1: 'QWorld OQI Hackathon QC Certification Courses (Two Courses) | May 19-28, 2026 (assessments due June 16) or June 4-13, 2026 (assessments due September 4)',
       course_desc_1: 'To ensure participants of ',
       course_desc_1_2: '(OQI) supported hackathons are equipped with the necessary skills, QWorld offers an education program covering quantum computing theoretical and applied skills (foundation to advanced skills). This virtual course will offer a high-quality Certification upon finishing the entire course and activities.',
       course_desc_2: 'Kindly note that all students with little or no knowledge of quantum computing are required to complete a virtual course (ninety minutes per session and ten sessions total) curated by QWorld and tailored specifically to quantum hackathons. The course will be self-paced. Successful participants will receive a certification upon completion of this online course.',
@@ -404,9 +404,9 @@ export class LanguageService {
       course_title_4: 'Schedule of QWorld OQI Hackathon QC Certification Courses (Two Courses)',
       course_desc_20: 'The workshop will be held during ten days, approximately requiring 30 hours of training.',
       course_desc_21: 'Participants are expected to follow the workshop materials and complete the tasks on their own. The course will be self-paced and will take place:',
-      course_desc_22: '1. May 19th to May 28th, 2025',
+      course_desc_22: '1. May 19th to May 28th, 2026',
       course_desc_23: 'and',
-      course_desc_24: '2. August 4th to August 13th, 2025',
+      course_desc_24: '2. June 4th to June 13th, 2026',
       course_title_5: 'QBronze + QNickel',
       course_desc_25: 'Monday – May 19, 5:00 PM (GST) [and] August 4, 8 PM (GST)',
       course_desc_26: 'The session covers course logistics and provides a general introducing to qauntum computing from a computer science perspective.',
