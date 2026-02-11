@@ -34,6 +34,7 @@ export class MentorsComponent {
   imagenJorgeChriste='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/2af759a4caa4ef56e85412bc58772c8d54823250/JorgeChristen.jpg';
   imagenKarina='https://github.com/QuikeStifler/PaginaHackathon2026/blob/3015dc7d957b8a11fb1f1aefe667e59013d876ce/Karina.jpeg?raw=true';
   imagenDavidPinto='https://github.com/QuikeStifler/PaginaHackathon2026/blob/3015dc7d957b8a11fb1f1aefe667e59013d876ce/davidpinto1.jpg?raw=true';
+  imagenFrancisco='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/644606a881363d2923205dc45f7378d9a7e2e08c/francisco.jpg';
 
   speakersList: PersonCard[] = [
     {
@@ -60,7 +61,9 @@ export class MentorsComponent {
       bioKey: 'bio_boris'
     },
     { name: 'Dra. Karina Garay Palmett', role: 'Departamento de Óptica', company: 'CICESE', image: this.imagenKarina, bioKey: 'bio_karina'},
-    { name: 'Dr.Francisco Domínguez', role: 'Departamento de Óptica', company: 'CICESE', image: this.defaultImage },
+    { name: 'Dr.Francisco Domínguez', role: 'Departamento de Óptica', company: 'CICESE', image: this.imagenFrancisco,
+      bioKey: 'bio_francisco'
+     },
     { name: 'Dra. Olivia Maricela Barrón Cano', role: 'Directora del Departamento de Computación e Ingeniería Industrial', company: 'Universidad de Monterrey', image: this.imagenOliviaMaricela},
     { name: 'M. I. José Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'Universidad de Monterrey', image: this.imagenJorgeChriste,
       bioKey: 'bio_christen'
@@ -83,15 +86,15 @@ export class MentorsComponent {
   ];
 
   mentorsAndJudgesList: PersonCard[] = [
-    { name: 'Miguel de Jesús Gónzalez Martínez', role: 'Mentor', company: 'Facultad de Ciencias - UNAM', image: this.defaultImage },
-    { name: 'Claudia Zendejas Morales', role: 'Mentor', company: 'Facultad de Ciencias - UNAM', image: this.defaultImage },
-    { name: 'Adair Campos Uscanga', role: 'Mentor', company: 'UAM Iztapalapa', image: this.defaultImage },
-    { name: 'Naomi Itzel Reyes Granados', role: 'Mentor', company: 'Facultad de Ingeniería - UNAM', image: this.defaultImage },
-    { name: 'Jorge Luis Apatiga Sánchez', role: 'Mentor', company: 'Facultad de Ciencias - UNAM', image: this.defaultImage },
-    { name: 'Dra. Jimena Olveres Montiel', role: 'Juez', company: 'UNAM', image: this.defaultImage },
-    { name: 'Dr. Boris Escalante Ramírez', role: 'Juez', company: 'UNAM', image: this.defaultImage },
-    { name: 'M.I. José Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'UDEM', image: this.imagenJorgeChriste,
-      bioKey: 'bio_christen'
-    },
+    // { name: 'Miguel de Jesús Gónzalez Martínez', role: 'Mentor', company: 'Facultad de Ciencias - UNAM', image: this.defaultImage },
+    // { name: 'Claudia Zendejas Morales', role: 'Mentor', company: 'Facultad de Ciencias - UNAM', image: this.defaultImage },
+    // { name: 'Adair Campos Uscanga', role: 'Mentor', company: 'UAM Iztapalapa', image: this.defaultImage },
+    // { name: 'Naomi Itzel Reyes Granados', role: 'Mentor', company: 'Facultad de Ingeniería - UNAM', image: this.defaultImage },
+    // { name: 'Jorge Luis Apatiga Sánchez', role: 'Mentor', company: 'Facultad de Ciencias - UNAM', image: this.defaultImage },
+    // { name: 'Dra. Jimena Olveres Montiel', role: 'Juez', company: 'UNAM', image: this.defaultImage },
+    // { name: 'Dr. Boris Escalante Ramírez', role: 'Juez', company: 'UNAM', image: this.defaultImage },
+    // { name: 'M.I. José Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'UDEM', image: this.imagenJorgeChriste,
+    //   bioKey: 'bio_christen'
+    // },
   ];
 }
