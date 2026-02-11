@@ -26,7 +26,7 @@ export class LanguageService {
       // HERO
       hero_tag: 'EVENTO INTERNACIONAL DE INNOVACIÓN',
       hero_title_1: 'HACKATHON',
-      hero_subtitle: 'QUANTUM SOLUTIONS FOR WATER CHALLENGES IN BIG CITIES',
+      hero_subtitle: 'CÓMPUTO CUÁNTICO PARA LOS DESAFÍOS DEL AGUA',
       hero_date: '29 JUN - 01 JUL, 2026 | PUEBLA, MÉXICO',
       time_d: 'Días', time_h: 'Horas', time_m: 'Min', time_s: 'Seg',
       hero_btn: 'REGISTRARTE',
@@ -263,7 +263,7 @@ export class LanguageService {
       // HERO
       hero_tag: 'INTERNATIONAL INNOVATION EVENT',
       hero_title_1: 'HACKATHON',
-      hero_subtitle: 'QUANTUM FOR WATER SYSTEM SOLUTIONS IN BIG CITIES',
+      hero_subtitle: 'QUANTUM COMPUTING FOR WATER CHALLENGES',
       hero_date: '29 JUN - 01 JUL, 2026 | PUEBLA, MEXICO',
       time_d: 'Days', time_h: 'Hours', time_m: 'Min', time_s: 'Sec',
       hero_btn: 'REGISTER',
