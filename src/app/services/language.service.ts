@@ -26,7 +26,7 @@ export class LanguageService {
       // HERO
       hero_tag: 'EVENTO INTERNACIONAL DE INNOVACIÓN',
       hero_title_1: 'HACKATHON',
-      hero_subtitle: 'CÓMPUTO CUÁNTICO PARA LOS DESAFÍOS DEL AGUA',
+      hero_subtitle: 'COMPUTO C𝜓ANTICO PARA LOS DESAFIOS DEL AGUA',
       hero_date: '29 JUN - 01 JUL, 2026 | PUEBLA, MÉXICO',
       time_d: 'Días', time_h: 'Horas', time_m: 'Min', time_s: 'Seg',
       hero_btn: 'REGISTRARTE',
@@ -34,14 +34,14 @@ export class LanguageService {
       // ABOUT
       about_title: 'EL DESAFÍO',
       about_sub: 'Quantum Solutions for Water Challenges in Big Cities',
-      about_desc: 'Las grandes ciudades enfrentan crisis hídricas. En el OQI Hackathon 2026, utilizamos el poder de la Computación Cuántica para modelar soluciones hídricas',
+      about_desc: 'Las grandes ciudades enfrentan crisis hídricas. En el Hackathon 2026, utilizamos el poder de la Computación Cuántica para modelar soluciones hídricas',
       stat_stages: 'Etapas',
       stat_countries: 'Países',
       stat_days: 'Días',
 
       // TIMELINE
       time_title: 'Ruta al Hackathon',
-      time_jan: 'ENE 2026', time_jan_t: 'Lanzamiento Oficial', time_jan_d: 'Rueda de prensa, presentación del comité y apertura de convocatoria',
+      time_jan: 'FEB 2026', time_jan_t: 'Lanzamiento Oficial', time_jan_d: 'Rueda de prensa, presentación del comité y apertura de convocatoria',
       time_mar: 'MARZO', time_mar_t: 'Capacitación', time_mar_d: 'Cursos de Capacitación al QComputing impartidos por qBraid® y retos hídricos',
       time_apr: 'ABRIL', time_apr_t: 'Selección', time_apr_d: 'Evaluación de perfiles y conformación de equipos híbridos',
       time_may: 'MAYO', time_may_t: 'Bootcamps', time_may_d: 'Mentorías técnicas con expertos de la industria',
@@ -263,7 +263,7 @@ export class LanguageService {
       // HERO
       hero_tag: 'INTERNATIONAL INNOVATION EVENT',
       hero_title_1: 'HACKATHON',
-      hero_subtitle: 'QUANTUM COMPUTING FOR WATER CHALLENGES',
+      hero_subtitle: 'QUANT𝜓M COMPUTING FOR WATER CHALLENGES',
       hero_date: '29 JUN - 01 JUL, 2026 | PUEBLA, MEXICO',
       time_d: 'Days', time_h: 'Hours', time_m: 'Min', time_s: 'Sec',
       hero_btn: 'REGISTER',
@@ -271,14 +271,14 @@ export class LanguageService {
       // ABOUT
       about_title: 'THE CHALLENGE',
       about_sub: 'Quantum Solutions for Water Challenges in Big Cities',
-      about_desc: 'Major cities face water crises. At the OQI Hackathon 2026, we use Quantum Computing to model water solutions',
+      about_desc: 'Major cities face water crises. At the Hackathon 2026, we use Quantum Computing to model water solutions',
       stat_stages: 'Stages',
       stat_countries: 'Countries',
       stat_days: 'Days',
 
       // TIMELINE
       time_title: 'Road to Hackathon',
-      time_jan: 'JAN 2026', time_jan_t: 'Official Launch', time_jan_d: 'Press conference, committee intro, and call for entries',
+      time_jan: 'FEB 2026', time_jan_t: 'Official Launch', time_jan_d: 'Press conference, committee intro, and call for entries',
       time_mar: 'MARCH', time_mar_t: 'Training', time_mar_d: 'Quantum Computing training courses delivered by qBraid® and water challenges',
       time_apr: 'APRIL', time_apr_t: 'Selection', time_apr_d: 'Profile evaluation and hybrid team formation',
       time_may: 'MAY', time_may_t: 'Bootcamps', time_may_d: 'Technical mentorship sessions with industry experts',
