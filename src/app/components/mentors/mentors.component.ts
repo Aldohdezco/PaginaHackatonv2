@@ -29,7 +29,7 @@ export class MentorsComponent {
   imagenOliviaMaricela= 'https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/4096f9d7093f5594e7f35c4cdd968fa6d0012b65/OliviaMaricelat.png';
   imagenRicardoTovar= 'https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/1eed4d63feddd05b8ca6cc70a66cecc7c702463a/VillegasTovar.jpg';
   imagenArturoFernandez= 'https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/2dddc0464894f982dff650b19e4d76ab1c62df0a/ArturoFernandez1.jpeg';
-  imagenEnriqueMorales='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/9186668362c3c191a26875b1225aefeec2a1dc47/EnriqueMorales.jpg';
+  imagenEnriqueMorales='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/09a6cb86905593291a96d4de749cecc567856e37/EnriqueMorales1.jpg';
   imagenSalvador='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/0f5252cb557b59471dcf3643aeb26653b2fa5025/SalvadorElias.jpg?raw=true';
   imagenJorgeChriste='https://raw.githubusercontent.com/QuikeStifler/PaginaHackathon2026/2af759a4caa4ef56e85412bc58772c8d54823250/JorgeChristen.jpg';
   imagenKarina='https://github.com/QuikeStifler/PaginaHackathon2026/blob/3015dc7d957b8a11fb1f1aefe667e59013d876ce/Karina.jpeg?raw=true';
