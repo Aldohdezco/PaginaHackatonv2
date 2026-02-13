@@ -315,7 +315,7 @@ async function generatePDF(registration) {
       form.flatten();
 
     } catch (error) {
-      console.error('⚠️ Error al rellenar campos, continuando con PDF básico');
+      
     }
 
     // Guardar y retornar PDF
