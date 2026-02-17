@@ -64,7 +64,9 @@ export class MentorsComponent {
     { name: 'Dr.Francisco Domínguez', role: 'Departamento de Óptica', company: 'CICESE', image: this.imagenFrancisco,
       bioKey: 'bio_francisco'
      },
-    { name: 'Dra. Olivia Maricela Barrón Cano', role: 'Directora del Departamento de Computación e Ingeniería Industrial', company: 'Universidad de Monterrey', image: this.imagenOliviaMaricela},
+    { name: 'Dra. Olivia Maricela Barrón Cano', role: 'Directora del Departamento de Computación e Ingeniería Industrial', company: 'Universidad de Monterrey', image: this.imagenOliviaMaricela,
+      bioKey: 'bio_olivia'
+    },
     { name: 'M. I. José Jorge Christen Gracia', role: 'Depto. Computación e Ingeniería', company: 'Universidad de Monterrey', image: this.imagenJorgeChriste,
       bioKey: 'bio_christen'
     },
