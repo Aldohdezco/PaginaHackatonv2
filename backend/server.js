@@ -312,7 +312,7 @@ async function generatePDF(registration) {
           const field = form.getTextField(fieldName);
           const value = fieldMappings[fieldName];
           field.setText(value);
-          console.log(`  ✅ Campo "${fieldName}" → "${value}"`);
+          console.log(`  Campo "${fieldName}" → "${value}"`);
           filledCount++;
         } catch (e) {
           notFoundFields.push(fieldName);
@@ -321,22 +321,22 @@ async function generatePDF(registration) {
       });
 
       console.log('');
-      console.log('📋 RESUMEN:');
-      console.log(`  ✅ Campos rellenados: ${filledCount}`);
-      console.log(`  ❌ Campos no encontrados: ${notFoundCount}`);
+      console.log('RESUMEN:');
+      console.log(`Campos rellenados: ${filledCount}`);
+      console.log(`Campos no encontrados: ${notFoundCount}`);
 
       if (notFoundFields.length > 0 && notFoundFields.length <= 10) {
         console.log('');
-        console.log('❌ Campos intentados pero no encontrados:');
+        console.log('Campos intentados pero no encontrados:');
         notFoundFields.forEach(field => {
           console.log(`     - ${field}`);
         });
       }
 
       console.log('');
-      console.log('💡 SUGERENCIA:');
-      console.log('   Si ningún campo se rellenó, revisa los nombres exactos');
-      console.log('   con el endpoint: /api/pdf-fields');
+      console.log('SUGERENCIA:');
+      console.log('Si ningún campo se rellenó, revisa los nombres exactos');
+      console.log('con el endpoint: /api/pdf-fields');
       console.log('═══════════════════════════════════════════════════');
       console.log('');
 
@@ -350,7 +350,7 @@ async function generatePDF(registration) {
     return Buffer.from(pdfBytes);
 
   } catch (error) {
-    console.error('❌ Error generando PDF con template:', error);
+    console.error('Error generando PDF con template:', error);
   }
 }
 
@@ -371,8 +371,8 @@ const normalize = v => {
 // Registro principal
 app.post('/api/register', upload.single('file'), async (req, res) => {
   try {
-    console.log('📦 Datos recibidos:', req.body);
-    console.log('📎 Archivo recibido:', req.file ? req.file.originalname : 'NO HAY ARCHIVO');
+    console.log('Datos recibidos:', req.body);
+    console.log('Archivo recibido:', req.file ? req.file.originalname : 'NO HAY ARCHIVO');
 
     const {
       name,
@@ -461,7 +461,7 @@ app.post('/api/register', upload.single('file'), async (req, res) => {
     const insertId = result[0].values[0][0];
 
     saveDatabase();
-    console.log('💾 Guardado en BD con ID:', insertId);
+    console.log('Guardado en BD con ID:', insertId);
 
     // Generar PDF automáticamente
     let pdfGenerated = false;
@@ -479,7 +479,7 @@ app.post('/api/register', upload.single('file'), async (req, res) => {
         created_at: new Date().toISOString()
       };
 
-      console.log('📄 Generando PDF automáticamente...');
+      console.log('Generando PDF automáticamente...');
       const pdfBuffer = await generatePDF(registration);
 
       const sanitizedName = name.replace(/[^a-z0-9]/gi, '_').toLowerCase();
@@ -518,7 +518,7 @@ app.post('/api/register', upload.single('file'), async (req, res) => {
     });
 
   } catch (error) {
-    console.error('❌ Error:', error);
+    console.error('Error:', error);
     res.status(500).json({ error: 'Error al procesar el registro' });
   }
 });
@@ -541,7 +541,7 @@ app.get('/api/generate-pdf/:id', async (req, res) => {
       registration[col] = values[index];
     });
 
-    console.log('📄 Generando PDF para:', registration.name);
+    console.log('Generando PDF para:', registration.name);
 
     const pdfBuffer = await generatePDF(registration);
 
@@ -556,10 +556,10 @@ app.get('/api/generate-pdf/:id', async (req, res) => {
     res.setHeader('Content-Disposition', `attachment; filename=${pdfFilename}`);
     res.send(pdfBuffer);
 
-    console.log('✅ PDF generado y guardado exitosamente');
+    console.log('PDF generado y guardado exitosamente');
 
   } catch (error) {
-    console.error('❌ Error al generar PDF:', error);
+    console.error('Error al generar PDF:', error);
     res.status(500).json({ error: 'Error al generar PDF: ' + error.message });
   }
 });
@@ -664,14 +664,14 @@ initDatabase().then(() => {
   app.listen(PORT, () => {
     console.log('');
     console.log('═══════════════════════════════════════════════════');
-    console.log(`🚀 Servidor corriendo en: http://localhost:${PORT}`);
-    console.log(`🌍 Ambiente: ${process.env.NODE_ENV}`);
-    console.log(`📁 Archivos en: ${uploadsDir}`);
-    console.log(`📄 PDFs generados en: ${pdfsDir}`);
-    console.log(`💾 Base de datos: ${dbPath}`);
-    console.log(`📊 Google Sheet ID: ${process.env.GOOGLE_SHEET_ID}`);
-    console.log(`🔑 Credenciales Google: ${process.env.GOOGLE_CREDENTIALS_PATH}`);
-    console.log(`📄 Template PDF: ${fs.existsSync(templatePath) ? '✅ Encontrado' : '❌ No encontrado'}`);
+    console.log(`Servidor corriendo en: http://localhost:${PORT}`);
+    console.log(`Ambiente: ${process.env.NODE_ENV}`);
+    console.log(`Archivos en: ${uploadsDir}`);
+    console.log(`PDFs generados en: ${pdfsDir}`);
+    console.log(`Base de datos: ${dbPath}`);
+    console.log(`Google Sheet ID: ${process.env.GOOGLE_SHEET_ID}`);
+    console.log(`Credenciales Google: ${process.env.GOOGLE_CREDENTIALS_PATH}`);
+    console.log(`Template PDF: ${fs.existsSync(templatePath) ? '✅ Encontrado' : '❌ No encontrado'}`);
     console.log('═══════════════════════════════════════════════════');
     console.log('');
   });

@@ -49,6 +49,10 @@
     cursor: pointer; font-weight: 500; color: #ddd; position: relative; transition: 0.3s;
     &:hover, &.active { color: #00B5E2; }
   }
+  a {
+    color: #ddd; text-decoration: none; font-weight: 500; position: relative; transition: 0.3s;
+    &:hover, &.active { color: #00B5E2; }
+  }
 }
 
 .lang-btn {
