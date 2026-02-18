@@ -40,3 +40,9 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
+# Backend - archivos generados y base de datos
+/backend/uploads/
+/backend/pdfs_generados/
+/backend/registros.db
