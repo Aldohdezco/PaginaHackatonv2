@@ -138,8 +138,7 @@ export class LanguageService {
       bio_david:'El Dr. David Eduardo Pinto Avendaño es investigador, líder académico y estratega de innovación con amplia experiencia en inteligencia artificial, cómputo avanzado y transferencia tecnológica. Actualmente dirige la Dirección de Innovación y Transferencia del Conocimiento (DITCo) de la Benemérita Universidad Autónoma de Puebla (BUAP), donde impulsa iniciativas que conectan investigación de vanguardia, colaboración con la industria y desarrollo tecnológico aplicado. Su trabajo abarca inteligencia artificial, ciencia de datos, sistemas inteligentes y tecnologías emergentes, con énfasis en traducir el conocimiento científico en impacto real. Ha coordinado y participado en múltiples proyectos nacionales e internacionales de I+D, incluyendo plataformas, laboratorios experimentales y ecosistemas de innovación alineados con la Industria 4.0. En este Hackathon de Computación Cuántica, aporta una visión estratégica sobre paradigmas de cómputo avanzado y la adopción responsable de tecnologías disruptivas para abordar desafíos científicos, industriales y sociales complejos.',
 
       // Courses
-      course_title_1: 'Cursos de Certificación QC del Hackathon QWorld OQI (Dos Cursos) | 19–28 de mayo de 2026 y del 4 al 13 de junio de 2026 Fecha TENTATIVA',
-
+      course_title_1: 'Cursos de Certificación QC del Hackathon QWorld OQI (Dos Cursos) | 19–28 de mayo de 2026 y del 4 al 13 de junio de 2026 -Fechas TENTATIVAS-',
       course_desc_1: 'Para garantizar que los participantes de los hackathons apoyados por el ',
 
       course_desc_1_2: 'Los hackathons apoyados están diseñados para asegurar que los participantes adquieran las habilidades necesarias mediante un programa educativo que cubre aspectos teóricos y aplicados de la computación cuántica, desde nivel básico hasta avanzado. Este curso virtual ofrecerá una certificación de alta calidad al finalizar todo el curso y las actividades.',
