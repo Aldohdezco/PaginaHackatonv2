@@ -5,14 +5,14 @@ import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
 import initSqlJs from 'sql.js';
-import nodemailer from 'nodemailer';
+import { google } from 'googleapis';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 
 // Cargar variables de entorno según el ambiente
-const envFile = process.env.NODE_ENV === 'production' 
-  ? '.env.production' 
+const envFile = process.env.NODE_ENV === 'production'
+  ? '.env.production'
   : '.env.development';
 
 dotenv.config({ path: envFile });
@@ -25,9 +25,9 @@ const PORT = process.env.PORT || 3000;
 
 // Configuración de carpetas
 const uploadsDir = path.join(__dirname, process.env.UPLOAD_DIR);
-const pdfsDir = path.join(__dirname, 'pdfs_generados'); // PDFs generados
+const pdfsDir = path.join(__dirname, 'pdfs_generados');
 const dbPath = path.join(__dirname, 'registros.db');
-const templatePath = path.join(__dirname, 'template.pdf'); // Template PDF
+const templatePath = path.join(__dirname, 'template.pdf');
 
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
@@ -47,7 +47,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/uploads', express.static(uploadsDir));
-app.use('/pdfs', express.static(pdfsDir)); // Servir PDFs generados
+app.use('/pdfs', express.static(pdfsDir));
 
 // Logging
 app.use((req, res, next) => {
@@ -55,7 +55,114 @@ app.use((req, res, next) => {
   next();
 });
 
-// Inicializar SQLite
+// ═══════════════════════════════════════════════════
+// GOOGLE SHEETS
+// ═══════════════════════════════════════════════════
+
+// Inicializar cliente de Google Sheets
+async function getSheetsClient() {
+  const auth = new google.auth.GoogleAuth({
+    keyFile: path.resolve(process.env.GOOGLE_CREDENTIALS_PATH),
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+  });
+  const authClient = await auth.getClient();
+  return google.sheets({ version: 'v4', auth: authClient });
+}
+
+// Asegurar que la hoja tenga encabezados en la primera fila
+async function ensureHeaders(sheets) {
+  const sheetId = process.env.GOOGLE_SHEET_ID;
+
+  const headers = [
+    'ID', 'Fecha', 'Nombre', 'Email', 'Teléfono', 'Institución', 'Rol',
+    'Nacionalidad', 'Ciudad', 'Biografía', 'LinkedIn', 'GitHub',
+    'Necesidades Especiales', 'Campo de Expertise', 'Habilidades Deseadas',
+    'Habilidades QC', 'Temas QC', 'Hardware QC', 'Lenguaje QC',
+    'Primer Hackathon', 'Habilidades IA', 'Experiencia Hackathones',
+    'Informado SDGs', 'En Equipo', 'Nombre Equipo', 'Tamaño Equipo',
+    'Miembros Equipo', 'Objetivos SDG', 'Archivo', 'URL PDF', 'Ambiente'
+  ];
+
+  const response = await sheets.spreadsheets.values.get({
+    spreadsheetId: sheetId,
+    range: 'A1:AE1',
+  });
+
+  const existingHeaders = response.data.values?.[0];
+  if (!existingHeaders || existingHeaders.length === 0) {
+    await sheets.spreadsheets.values.update({
+      spreadsheetId: sheetId,
+      range: 'A1',
+      valueInputOption: 'RAW',
+      requestBody: { values: [headers] },
+    });
+    console.log('📋 Encabezados creados en Google Sheets');
+  }
+}
+
+// Agregar un registro a Google Sheets
+async function appendToGoogleSheet(data, insertId, pdfUrl = null) {
+  try {
+    const sheets = await getSheetsClient();
+    await ensureHeaders(sheets);
+
+    const fecha = new Date().toLocaleString('es-MX', { timeZone: 'America/Mexico_City' });
+    const baseUrl = process.env.FRONTEND_URL || '';
+
+    const row = [
+      insertId,
+      fecha,
+      data.name                    || '',
+      data.email                   || '',
+      data.phone_number            || '',
+      data.institute               || '',
+      data.role                    || '',
+      data.nationality             || '',
+      data.recity                  || '',
+      data.biography               || '',
+      data.linkedin                || '',
+      data.github                  || '',
+      data.specific_needs          || '',
+      data.field_expertise         || '',
+      data.whish_skills            || '',
+      data.QC_skills               || '',
+      data.topics_QC               || '',
+      data.familiarity_QC_hardware || '',
+      data.QC_language             || '',
+      data.first_hackathon         || '',
+      data.ia_skills               || '',
+      data.hackathon_experience    || '',
+      data.infomed_SDGs            || '',
+      data.aspart_team             || '',
+      data.team_name               || '',
+      data.team_size               || '',
+      data.team_names              || '',
+      data.SDG_goals               || '',
+      data.file_name               || '',
+      pdfUrl ? `${baseUrl}${pdfUrl}` : '',
+      process.env.NODE_ENV         || '',
+    ];
+
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: process.env.GOOGLE_SHEET_ID,
+      range: 'A1',
+      valueInputOption: 'RAW',
+      insertDataOption: 'INSERT_ROWS',
+      requestBody: { values: [row] },
+    });
+
+    console.log('✅ Registro añadido a Google Sheets');
+    return true;
+  } catch (error) {
+    console.error('❌ Error al escribir en Google Sheets:', error.message);
+    return false;
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// BASE DE DATOS SQLite
+// ═══════════════════════════════════════════════════
+
 let SQL;
 let db;
 
@@ -109,16 +216,14 @@ async function initDatabase() {
   saveDatabase();
 }
 
-
-// Función para guardar la base de datos en disco
 function saveDatabase() {
-  const data = db.export();
-  const buffer = Buffer.from(data);
   fs.writeFileSync(dbPath, Buffer.from(db.export()));
-
 }
 
-// Configuración de Multer
+// ═══════════════════════════════════════════════════
+// MULTER
+// ═══════════════════════════════════════════════════
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, uploadsDir);
@@ -136,7 +241,7 @@ const upload = multer({
     const allowedTypes = /pdf|doc|docx/;
     const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
     const mimetype = allowedTypes.test(file.mimetype);
-    
+
     if (extname && mimetype) {
       cb(null, true);
     } else {
@@ -145,139 +250,63 @@ const upload = multer({
   }
 });
 
-// Configuración de Nodemailer
-const transporter = nodemailer.createTransport({
-  service: process.env.EMAIL_SERVICE,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-});
+// ═══════════════════════════════════════════════════
+// GENERACIÓN DE PDF
+// ═══════════════════════════════════════════════════
 
-// Función para enviar email
-async function sendNotificationEmail( data, uploadedFilePath, pdfPath = null, pdfFilename = null) {
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: process.env.ADMIN_EMAIL,
-    subject: `Nuevo Registro: ${data.name}`,
-    html: `
-      <h2>Nuevo registro recibido</h2>
-
-      <p><strong>Email:</strong> ${data.email}</p>
-      <p><strong>Nombre:</strong> ${data.name}</p>
-      <p><strong>Número de Teléfono:</strong> ${data.phone_number || 'N/A'}</p>
-      <p><strong>Institución:</strong> ${data.institute}</p>
-      <p><strong>Rol:</strong> ${data.role || 'N/A'}</p>
-      <p><strong>Nacionalidad:</strong> ${data.nationality || 'N/A'}</p>
-      <p><strong>Ciudad de Residencia:</strong> ${data.recity || 'N/A'}</p>
-      <p><strong>Biografía:</strong> ${data.biography || 'N/A'}</p>
-      <p><strong>LinkedIn:</strong> ${data.linkedin || 'N/A'}</p>
-      <p><strong>GitHub:</strong> ${data.github || 'N/A'}</p>
-      <p><strong>Necesidades Especiales:</strong> ${data.specific_needs || 'N/A'}</p>
-      <p><strong>Campo de expertise:</strong> ${data.field_expertise || 'N/A'}</p>
-      <p><strong>Habilidades que desea adquirir:</strong> ${data.whish_skills || 'N/A'}</p>
-      <p><strong>Habilidades en QC:</strong> ${data.QC_skills || 'N/A'}</p>
-      <p><strong>Tres temas de interes en QC:</strong> ${data.topics_QC || 'N/A'}</p>
-      <p><strong>Hardware con el que esta familiarizado:</strong> ${data.familiarity_QC_hardware || 'N/A'}</p>
-      <p><strong>Lenguaje de QC preferido:</strong> ${data.QC_language || 'N/A'}</p>
-      <p><strong>¿Es su primer hackathon:</strong> ${data.first_hackathon || 'N/A'}</p>
-      <p><strong>Habilidades en IA:</strong> ${data.ia_skills || 'N/A'}</p>
-      <p><strong>Experiencia en Hackathones:</strong> ${data.hackathon_experience || 'N/A'}</p>
-      <p><strong>Esta informado de los SDGs:</strong> ${data.infomed_SDGs || 'N/A'}</p>
-      <p><strong>Esta en equipo:</strong> ${data.aspart_team || 'N/A'}</p>
-      <p><strong>Nombre del equipo:</strong> ${data.team_name || 'N/A'}</p>
-      <p><strong>Tamaño del equipo:</strong> ${data.team_size || 'N/A'}</p>
-      <p><strong>Nombres de los miembros del equipo:</strong> ${data.team_names || 'N/A'}</p>
-      <p><strong>Inereses en ODS:</strong> ${data.SDG_goals || 'N/A'}</p>
-      <p><strong>Fecha:</strong> ${new Date().toLocaleString('es-MX', { timeZone: 'America/Mexico_City' })}</p>
-      <hr>
-      <p><small>Ambiente: ${process.env.NODE_ENV}</small></p>
-    `,
-    attachments: [
-      {
-        filename: data.file_name,
-        path: uploadedFilePath
-      },
-      ...(pdfPath ? [{
-        filename: pdfFilename,
-        path: pdfPath
-      }] : [])
-    ]
-  };
-
-  try {
-    await transporter.sendMail(mailOptions);
-    console.log('✅ Email enviado exitosamente');
-    return true;
-  } catch (error) {
-    console.error('❌ Error al enviar email:', error.message);
-    return false;
-  }
-}
-
-// Función para generar PDF con datos del registro
 async function generatePDF(registration) {
   try {
-    // Verificar si existe el template
     if (!fs.existsSync(templatePath)) {
-      console.warn('⚠️ Template PDF no encontrado, creando PDF básico');
+      console.warn('⚠️ Template PDF no encontrado');
     }
 
-    // Cargar template PDF
     const templateBytes = fs.readFileSync(templatePath);
     const pdfDoc = await PDFDocument.load(templateBytes);
-
-    // Obtener el formulario del PDF
     const form = pdfDoc.getForm();
 
-    // Listar campos disponibles (útil para debugging)
     const fields = form.getFields();
     console.log('📋 Campos disponibles en el PDF template:');
     fields.forEach(field => {
       console.log(`  - ${field.getName()} (${field.constructor.name})`);
     });
 
-    // Rellenar campos del formulario
     try {
-      // Intenta rellenar campos comunes
       const fieldMappings = {
-        'Text1': registration.email,  
-        'Text2': registration.name,  
-        'Text3': registration.phone_number,  
-        'Text4': registration.institute,  
-        'Text5': registration.role,  
-        'Text6': registration.nationality,  
-        'Text7': registration.recity,  
-        'Text8': registration.biography,  
-        'Text9': registration.linkedin,  
-        'Text10': registration.github,  
-        'Text11': registration.specific_needs,  
-        'Text12': registration.field_expertise,  
-        'Text13': registration.infomed_SDGs,  
-        'Text14': registration.whish_skills,  
-        'Text15': registration.QC_skills,  
-        'Text16': registration.topics_QC,  
-        'Text17': registration.familiarity_QC_hardware,  
-        'Text18': registration.QC_language,  
-        'Text19': registration.first_hackathon,  
-        'Text20': registration.ia_skills,  
-        'Text21': registration.hackathon_experience,  
-        'Text22': registration.aspart_team,  
-        'Text23': registration.team_name,  
-        'Text24': registration.team_size,  
-        'Text25': registration.team_names,  
-        'Text26': registration.SDG_goals,  
-       
+        'Text1':  registration.email,
+        'Text2':  registration.name,
+        'Text3':  registration.phone_number,
+        'Text4':  registration.institute,
+        'Text5':  registration.role,
+        'Text6':  registration.nationality,
+        'Text7':  registration.recity,
+        'Text8':  registration.biography,
+        'Text9':  registration.linkedin,
+        'Text10': registration.github,
+        'Text11': registration.specific_needs,
+        'Text12': registration.field_expertise,
+        'Text13': registration.infomed_SDGs,
+        'Text14': registration.whish_skills,
+        'Text15': registration.QC_skills,
+        'Text16': registration.topics_QC,
+        'Text17': registration.familiarity_QC_hardware,
+        'Text18': registration.QC_language,
+        'Text19': registration.first_hackathon,
+        'Text20': registration.ia_skills,
+        'Text21': registration.hackathon_experience,
+        'Text22': registration.aspart_team,
+        'Text23': registration.team_name,
+        'Text24': registration.team_size,
+        'Text25': registration.team_names,
+        'Text26': registration.SDG_goals,
       };
 
       console.log('🔄 INTENTANDO RELLENAR CAMPOS...');
       console.log('');
-      
+
       let filledCount = 0;
       let notFoundCount = 0;
       const notFoundFields = [];
 
-      // Intentar rellenar cada campo
       Object.keys(fieldMappings).forEach(fieldName => {
         try {
           const field = form.getTextField(fieldName);
@@ -295,7 +324,7 @@ async function generatePDF(registration) {
       console.log('📋 RESUMEN:');
       console.log(`  ✅ Campos rellenados: ${filledCount}`);
       console.log(`  ❌ Campos no encontrados: ${notFoundCount}`);
-      
+
       if (notFoundFields.length > 0 && notFoundFields.length <= 10) {
         console.log('');
         console.log('❌ Campos intentados pero no encontrados:');
@@ -311,35 +340,40 @@ async function generatePDF(registration) {
       console.log('═══════════════════════════════════════════════════');
       console.log('');
 
-      // Aplanar el formulario (hacer campos no editables)
       form.flatten();
 
     } catch (error) {
-      
+      // continuar aunque falle el llenado
     }
 
-    // Guardar y retornar PDF
     const pdfBytes = await pdfDoc.save();
     return Buffer.from(pdfBytes);
 
   } catch (error) {
     console.error('❌ Error generando PDF con template:', error);
-    // Si falla, generar PDF básico
   }
 }
+
+// ═══════════════════════════════════════════════════
+// UTILIDADES
+// ═══════════════════════════════════════════════════
+
 const normalize = v => {
   if (v === undefined || v === null) return null;
   if (typeof v === 'string' && v.trim() === '') return null;
   return v;
 };
 
-// Endpoint de registro
+// ═══════════════════════════════════════════════════
+// ENDPOINTS
+// ═══════════════════════════════════════════════════
+
+// Registro principal
 app.post('/api/register', upload.single('file'), async (req, res) => {
   try {
-
-     console.log('📦 Datos recibidos:', req.body);
+    console.log('📦 Datos recibidos:', req.body);
     console.log('📎 Archivo recibido:', req.file ? req.file.originalname : 'NO HAY ARCHIVO');
-    
+
     const {
       name,
       institute,
@@ -369,53 +403,27 @@ app.post('/api/register', upload.single('file'), async (req, res) => {
       SDG_goals
     } = req.body;
 
-    
     // Validaciones
-    if (!name || !email ) {
-      return res.status(400).json({
-        error: 'Faltan campos obligatorios'
-      });
+    if (!name || !email) {
+      return res.status(400).json({ error: 'Faltan campos obligatorios' });
     }
 
     if (!req.file) {
       return res.status(400).json({ error: 'Archivo requerido' });
     }
 
-
     // Guardar en SQLite
     const stmt = db.prepare(`
       INSERT INTO registrations (
-        name,
-        email,
-        institute,
-        phone_number,
-        role,
-        nationality,
-        recity,
-        biography,
-        linkedin,
-        github,
-        specific_needs,
-        field_expertise,
-        whish_skills,
-        QC_skills,
-        familiarity_QC_hardware,
-        QC_language,
-        first_hackathon,
-        ia_skills,
-        hackathon_experience,
-        infomed_SDGs,
-        aspart_team,
-        team_name,
-        team_size,
-        team_names,
-        topics_QC,
-        SDG_goals,
-        file_path,
-        file_name
+        name, email, institute, phone_number, role, nationality, recity,
+        biography, linkedin, github, specific_needs, field_expertise,
+        whish_skills, QC_skills, familiarity_QC_hardware, QC_language,
+        first_hackathon, ia_skills, hackathon_experience, infomed_SDGs,
+        aspart_team, team_name, team_size, team_names, topics_QC, SDG_goals,
+        file_path, file_name
       ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
     `);
-    
+
     stmt.run([
       name,
       email,
@@ -447,116 +455,63 @@ app.post('/api/register', upload.single('file'), async (req, res) => {
       req.file.originalname
     ]);
 
-
     stmt.free();
 
-    // Obtener el ID del último insert
     const result = db.exec('SELECT last_insert_rowid() as id');
     const insertId = result[0].values[0][0];
 
-    // Guardar base de datos en disco
     saveDatabase();
-
     console.log('💾 Guardado en BD con ID:', insertId);
 
     // Generar PDF automáticamente
     let pdfGenerated = false;
     let pdfUrl = null;
     let pdfFilename = null;
-    
+
     try {
       const registration = {
         id: insertId,
-        name,
-        institute,
-        email,
-        phone_number,
-        role,
-        nationality,
-        recity,
-        biography,
-        linkedin,
-        github,
-        specific_needs,
-        field_expertise,
-        whish_skills,
-        QC_skills,
-        familiarity_QC_hardware,
-        QC_language,
-        first_hackathon,
-        ia_skills,
-        hackathon_experience,
-        infomed_SDGs,
-        aspart_team,
-        team_name,
-        team_size,
-        team_names,
-        topics_QC,
-        SDG_goals,
+        name, institute, email, phone_number, role, nationality, recity,
+        biography, linkedin, github, specific_needs, field_expertise,
+        whish_skills, QC_skills, familiarity_QC_hardware, QC_language,
+        first_hackathon, ia_skills, hackathon_experience, infomed_SDGs,
+        aspart_team, team_name, team_size, team_names, topics_QC, SDG_goals,
         created_at: new Date().toISOString()
       };
 
       console.log('📄 Generando PDF automáticamente...');
       const pdfBuffer = await generatePDF(registration);
 
-      // Guardar PDF
       const sanitizedName = name.replace(/[^a-z0-9]/gi, '_').toLowerCase();
       pdfFilename = `registro_${insertId}_${sanitizedName}_${Date.now()}.pdf`;
       const pdfPath = path.join(pdfsDir, pdfFilename);
-      
+
       fs.writeFileSync(pdfPath, pdfBuffer);
       pdfUrl = `/pdfs/${pdfFilename}`;
       pdfGenerated = true;
-      
+
       console.log('✅ PDF generado y guardado:', pdfFilename);
     } catch (pdfError) {
       console.error('⚠️ Error al generar PDF (continuando):', pdfError.message);
     }
 
-    // Enviar notificación por email
-    // Enviar notificación por email con ambos PDFs
-const pdfPathForEmail = pdfGenerated ? path.join(pdfsDir, pdfFilename) : null;
+    // Guardar en Google Sheets
+    const sheetData = {
+      name, institute, email, phone_number, role, nationality, recity,
+      biography, linkedin, github, specific_needs, field_expertise,
+      whish_skills, QC_skills, familiarity_QC_hardware, QC_language,
+      first_hackathon, ia_skills, hackathon_experience, infomed_SDGs,
+      aspart_team, team_name, team_size, team_names, topics_QC, SDG_goals,
+      file_name: req.file.originalname
+    };
 
-const emailSent = await sendNotificationEmail(
-  {
-    name,
-    institute,
-    email,
-    phone_number,
-    role,
-    nationality,
-    recity,
-    biography,
-    linkedin,
-    github,
-    specific_needs,
-    field_expertise,
-    whish_skills,
-    QC_skills,
-    familiarity_QC_hardware,
-    QC_language,
-    first_hackathon,
-    ia_skills,
-    hackathon_experience,
-    infomed_SDGs,
-    aspart_team,
-    team_name,
-    team_size,
-    team_names,
-    topics_QC,
-    SDG_goals,
-    file_name: req.file.originalname
-  }, 
-  req.file.path,           // ← PDF subido por el usuario
-  pdfPathForEmail,         // ← PDF generado (path completo)
-  pdfFilename              // ← Nombre del PDF generado
-);
+    const sheetSaved = await appendToGoogleSheet(sheetData, insertId, pdfUrl);
 
     res.status(201).json({
       success: true,
       message: 'Registro guardado exitosamente',
       id: insertId,
-      email_sent: emailSent,
+      sheet_saved: sheetSaved,
       pdf_generated: pdfGenerated,
       pdf_url: pdfUrl,
       pdf_filename: pdfFilename
@@ -568,14 +523,13 @@ const emailSent = await sendNotificationEmail(
   }
 });
 
-// Endpoint para generar PDF de un registro
+// Generar PDF de un registro existente
 app.get('/api/generate-pdf/:id', async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    
-    // Obtener datos del registro
+
     const result = db.exec(`SELECT * FROM registrations WHERE id = ${id}`);
-    
+
     if (!result || result.length === 0 || result[0].values.length === 0) {
       return res.status(404).json({ error: 'Registro no encontrado' });
     }
@@ -589,18 +543,15 @@ app.get('/api/generate-pdf/:id', async (req, res) => {
 
     console.log('📄 Generando PDF para:', registration.name);
 
-    // Generar PDF
     const pdfBuffer = await generatePDF(registration);
 
-    // Guardar PDF en carpeta pdfs_generados
     const sanitizedName = registration.name.replace(/[^a-z0-9]/gi, '_').toLowerCase();
     const pdfFilename = `registro_${id}_${sanitizedName}_${Date.now()}.pdf`;
     const pdfPath = path.join(pdfsDir, pdfFilename);
-    
+
     fs.writeFileSync(pdfPath, pdfBuffer);
     console.log('💾 PDF guardado en:', pdfPath);
 
-    // Enviar PDF al navegador
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', `attachment; filename=${pdfFilename}`);
     res.send(pdfBuffer);
@@ -613,26 +564,26 @@ app.get('/api/generate-pdf/:id', async (req, res) => {
   }
 });
 
-// Endpoint para ver los campos del PDF template (debugging)
+// Ver campos del template PDF (debugging)
 app.get('/api/pdf-fields', async (req, res) => {
   try {
     if (!fs.existsSync(templatePath)) {
-      return res.json({ 
+      return res.json({
         error: 'Template PDF no encontrado',
-        path: templatePath 
+        path: templatePath
       });
     }
 
     const templateBytes = fs.readFileSync(templatePath);
     const pdfDoc = await PDFDocument.load(templateBytes);
     const form = pdfDoc.getForm();
-    
+
     const fields = form.getFields().map(field => ({
       name: field.getName(),
       type: field.constructor.name
     }));
 
-    res.json({ 
+    res.json({
       fields,
       templatePath,
       totalFields: fields.length
@@ -642,7 +593,7 @@ app.get('/api/pdf-fields', async (req, res) => {
   }
 });
 
-// Endpoint para listar PDFs generados
+// Listar PDFs generados
 app.get('/api/pdfs', (req, res) => {
   try {
     const files = fs.readdirSync(pdfsDir)
@@ -656,30 +607,29 @@ app.get('/api/pdfs', (req, res) => {
           url: `/pdfs/${file}`
         };
       })
-      .sort((a, b) => b.created - a.created); // Más recientes primero
+      .sort((a, b) => b.created - a.created);
 
-    res.json({ 
+    res.json({
       total: files.length,
-      pdfs: files 
+      pdfs: files
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-// Endpoint para obtener registros (opcional - para testing)
+// Obtener registros
 app.get('/api/registrations', (req, res) => {
   try {
     const result = db.exec('SELECT * FROM registrations ORDER BY created_at DESC');
-    
+
     if (result.length === 0) {
       return res.json([]);
     }
 
-    // Convertir resultado a formato JSON
     const columns = result[0].columns;
     const values = result[0].values;
-    
+
     const registrations = values.map(row => {
       const obj = {};
       columns.forEach((col, index) => {
@@ -695,17 +645,21 @@ app.get('/api/registrations', (req, res) => {
   }
 });
 
-// Endpoint de health check
+// Health check
 app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
+  res.json({
+    status: 'OK',
     environment: process.env.NODE_ENV,
     timestamp: new Date().toISOString(),
-    hasTemplate: fs.existsSync(templatePath)
+    hasTemplate: fs.existsSync(templatePath),
+    hasGoogleCredentials: fs.existsSync(path.resolve(process.env.GOOGLE_CREDENTIALS_PATH || ''))
   });
 });
 
-// Iniciar servidor
+// ═══════════════════════════════════════════════════
+// INICIO DEL SERVIDOR
+// ═══════════════════════════════════════════════════
+
 initDatabase().then(() => {
   app.listen(PORT, () => {
     console.log('');
@@ -715,7 +669,8 @@ initDatabase().then(() => {
     console.log(`📁 Archivos en: ${uploadsDir}`);
     console.log(`📄 PDFs generados en: ${pdfsDir}`);
     console.log(`💾 Base de datos: ${dbPath}`);
-    console.log(`📧 Email configurado: ${process.env.EMAIL_USER}`);
+    console.log(`📊 Google Sheet ID: ${process.env.GOOGLE_SHEET_ID}`);
+    console.log(`🔑 Credenciales Google: ${process.env.GOOGLE_CREDENTIALS_PATH}`);
     console.log(`📄 Template PDF: ${fs.existsSync(templatePath) ? '✅ Encontrado' : '❌ No encontrado'}`);
     console.log('═══════════════════════════════════════════════════');
     console.log('');
