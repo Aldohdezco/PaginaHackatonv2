@@ -41,8 +41,15 @@ testem.log
 .DS_Store
 Thumbs.db
 
+<<<<<<<<< Temporary merge branch 1
 
 # Backend - archivos generados y base de datos
 /backend/uploads/
 /backend/pdfs_generados/
 /backend/registros.db
+=========
+# Backend - archivos generados y base de datos
+/backend/uploads/
+/backend/pdfs_generados/
+/backend/registros.db
+>>>>>>>>> Temporary merge branch 2
