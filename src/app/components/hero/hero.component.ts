@@ -44,6 +44,9 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
+  openForm(): void {
+    window.open('https://forms.gle/iUmGVKmy8vYpbSH78', '_blank');
+  }
   ngOnInit() {
     if (this.isBrowser) this.startTimer();
   }
@@ -178,3 +181,4 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
 class Point {
   constructor(public theta: number, public phi: number) {}
 }
+
