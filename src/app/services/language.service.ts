@@ -78,7 +78,9 @@ export class LanguageService {
 
       // REGISTRO & PREMIOS
       req_title: 'PERFIL DE INGRESO',
+      req_title_2: 'El registro se cerrara el 31 de marzo de 2026',
       req_subtitle: 'Requisitos Obligatorios',
+      req_subtitle_2: 'El registro es individual y obligatorio, los cursos pueden realizarse en equipo si se desea.',
       req_1: 'Educacion superior (comprobable)',
       req_2: 'Residente en Latinoamérica',
       req_3: 'Mayor de 18 años',
@@ -315,7 +317,9 @@ export class LanguageService {
 
       // REGISTRO & PREMIOS
       req_title: 'ADMISSION PROFILE',
+      req_title_2: 'Registration will close on March 31, 2026',
       req_subtitle: 'Mandatory Requirements',
+      req_subtitle_2: 'Registration is individual and mandatory, courses can be taken in teams if desired.',
       req_1: 'Higher education (comprobable)',
       req_2: 'Resident in Latin America',
       req_3: 'Over 18 years old',

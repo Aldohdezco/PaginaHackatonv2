@@ -38,6 +38,25 @@
     }
   }
 }
+.req-list li {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 15px;
+  align-items: start;
+}
+
+.req-text {
+  line-height: 1.5;
+}
+.req-list li i {
+  color: #00B5E2;
+  font-size: 1.2rem;
+}
+.req-text a {
+  word-break: break-word;
+}
 
 .form-col {
   flex: 1;
@@ -186,5 +205,15 @@ select.ng-invalid.ng-touched {
   }
   .file-name {
     max-width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .req-list li {
+    align-items: flex-start;
+  }
+
+  .req-list li i {
+    margin-top: 4px;
+    flex-shrink: 0;
   }
 }

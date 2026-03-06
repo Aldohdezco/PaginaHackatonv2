@@ -11,7 +11,16 @@
 
   @media(max-width: 900px) { flex-direction: column; }
 }
-
+.subtitle {
+  display: block;
+  color: #FFF;
+  font-weight: normal;
+  margin-top: -10px;
+  margin-bottom: 30px;
+  align-items: center;
+  text-align: center;
+  font-size: x-large;
+}
 .requirements-col {
   flex: 1;
   color: white;
