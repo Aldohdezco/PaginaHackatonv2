@@ -78,9 +78,9 @@ export class LanguageService {
 
       // REGISTRO & PREMIOS
       req_title: 'PERFIL DE INGRESO',
-      req_title_2: 'El registro se cerrara el 31 de marzo de 2026',
+      req_title_2: 'El registro se cerrará el 31 de marzo de 2026',
       req_subtitle: 'Requisitos Obligatorios',
-      req_subtitle_2: 'El registro es individual y obligatorio, los cursos pueden realizarse en equipo si se desea.',
+      req_subtitle_2: 'El registro es individual y obligatorio, una vez aprobados los cursos, el evento se realizará en equipos de 5 integrantes máximo.',
       req_1: 'Educacion superior (comprobable)',
       req_2: 'Residente en Latinoamérica',
       req_3: 'Mayor de 18 años',
