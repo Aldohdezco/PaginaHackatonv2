@@ -198,7 +198,7 @@ export class LanguageService {
 
       course_desc_21: 'Se espera que los participantes sigan los materiales del taller y completen las tareas de manera independiente. El curso será a tu propio ritmo y se llevará a cabo en las siguientes fechas:',
 
-      course_desc_22: '1. Del 19 al 28 de mayo de 2026',
+      course_desc_22: '1. Del 15 al 24 de mayo de 2026',
       course_desc_23: 'y',
       course_desc_24: '2. Del 4 al 13 de junio de 2026',
 
@@ -411,7 +411,7 @@ export class LanguageService {
       course_title_4: 'Schedule of QWorld OQI Hackathon QC Certification Courses (Two Courses)',
       course_desc_20: 'The workshop will be held during ten days, approximately requiring 30 hours of training.',
       course_desc_21: 'Participants are expected to follow the workshop materials and complete the tasks on their own. The course will be self-paced and will take place:',
-      course_desc_22: '1. May 19th to May 28th, 2026',
+      course_desc_22: '1. May 15th to May 24th, 2026',
       course_desc_23: 'and',
       course_desc_24: '2. June 4th to June 13th, 2026',
       course_title_5: 'QBronze + QNickel',
