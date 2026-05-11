@@ -42,9 +42,9 @@ export class LanguageService {
       // TIMELINE
       time_title: 'Ruta al Hackathon',
       time_jan: 'FEB 2026', time_jan_t: 'Lanzamiento Oficial', time_jan_d: 'Rueda de prensa, presentación del comité y apertura de convocatoria',
-      time_mar: 'MARZO', time_mar_t: 'Capacitación', time_mar_d: 'Cursos de Capacitación al QComputing impartidos por qBraid® y retos hídricos',
-      time_apr: 'ABRIL', time_apr_t: 'Selección', time_apr_d: 'Evaluación de perfiles y conformación de equipos híbridos',
-      time_may: 'MAYO', time_may_t: 'Bootcamps', time_may_d: 'Mentorías técnicas con expertos de la industria',
+      //time_mar: 'MARZO', time_mar_t: 'Capacitación', time_mar_d: 'Cursos de Capacitación al QComputing impartidos por qBraid® y retos hídricos',
+      time_apr: 'MAYO', time_apr_t: 'Selección', time_apr_d: 'Evaluación de perfiles y conformación de equipos híbridos: Solicitud de Confirmación',
+      time_may: 'MAYO 15-24', time_may_t: 'Bootcamps', time_may_d: 'Cursos y Mentorías técnicas con expertos de la industria L-V 7:00 AM - 8:30 AM (UTC-6)',
       time_event_date: '29 JUN - 01 JUL', time_event_t: 'HACKATHON LATAM 2026', time_event_d: '3 días de desarrollo intensivo (Llegada: 28 de Junio)',
       time_aug: 'AGOSTO', time_aug_t: 'Incubación', time_aug_d: 'Seguimiento a prototipos ganadores',
 
@@ -140,7 +140,7 @@ export class LanguageService {
       bio_david:'El Dr. David Eduardo Pinto Avendaño es investigador, líder académico y estratega de innovación con amplia experiencia en inteligencia artificial, cómputo avanzado y transferencia tecnológica. Actualmente dirige la Dirección de Innovación y Transferencia del Conocimiento (DITCo) de la Benemérita Universidad Autónoma de Puebla (BUAP), donde impulsa iniciativas que conectan investigación de vanguardia, colaboración con la industria y desarrollo tecnológico aplicado. Su trabajo abarca inteligencia artificial, ciencia de datos, sistemas inteligentes y tecnologías emergentes, con énfasis en traducir el conocimiento científico en impacto real. Ha coordinado y participado en múltiples proyectos nacionales e internacionales de I+D, incluyendo plataformas, laboratorios experimentales y ecosistemas de innovación alineados con la Industria 4.0. En este Hackathon de Computación Cuántica, aporta una visión estratégica sobre paradigmas de cómputo avanzado y la adopción responsable de tecnologías disruptivas para abordar desafíos científicos, industriales y sociales complejos.',
 
       // Courses
-      course_title_1: 'Cursos de Certificación QC del Hackathon QWorld OQI (Dos Cursos) | 19–28 de mayo de 2026 y del 4 al 13 de junio de 2026 -Fechas TENTATIVAS-',
+      course_title_1: 'Cursos de Certificación QC del Hackathon QWorld OQI (Dos Cursos) | 15–24 de mayo de 2026 y del 4 al 13 de junio de 2026 -Fechas TENTATIVAS-',
       course_desc_1: 'Para garantizar que los participantes de los hackathons apoyados por el ',
 
       course_desc_1_2: 'Los hackathons apoyados están diseñados para asegurar que los participantes adquieran las habilidades necesarias mediante un programa educativo que cubre aspectos teóricos y aplicados de la computación cuántica, desde nivel básico hasta avanzado. Este curso virtual ofrecerá una certificación de alta calidad al finalizar todo el curso y las actividades.',
@@ -204,35 +204,45 @@ export class LanguageService {
 
       course_title_5: 'QBronze + QNickel',
 
-      course_desc_25: 'Lunes – 19 de mayo, 5:00 PM (GST) [y] 4 de agosto, 8:00 PM (GST)',
+
+
+
+
+      course_desc_25: 'Viernes – 15 de mayo, 7:00 AM  - 8:30 AM (UTC-6)',
       course_desc_26: 'La sesión cubre la logística del curso y ofrece una introducción general a la computación cuántica desde una perspectiva de ciencias de la computación.',
 
-      course_desc_27: 'Martes – 20 de mayo, 5:00 PM (GST) [y] 5 de agosto, 8:00 PM (GST)',
+      course_desc_27: 'Sábado – 16 de mayo, 7:00 AM  - 8:30 AM (UTC-6)',
       course_desc_28: 'Se introduce el marco matemático para representar sistemas probabilísticos clásicos y su evolución bajo operaciones estocásticas.',
 
-      course_desc_29: 'Miércoles – 21 de mayo, 5:00 PM (GST) [y] 6 de agosto, 8:00 PM (GST)',
+      course_desc_29: 'Domingo – 17 de mayo, 7:00 AM  - 8:30 AM (UTC-6)',
       course_desc_30: 'Generalizamos la formulación para permitir la representación de información cuántica, su evolución bajo operaciones unitarias y la extracción de información mediante mediciones.',
 
-      course_desc_31: 'Jueves – 22 de mayo, 5:00 PM (GST) [y] 7 de agosto, 8:00 PM (GST)',
+      course_desc_31: 'Lunes – 18 de mayo, 7:00 AM  - 8:30 AM (UTC-6)',
       course_desc_32: 'Operaciones cuánticas y programación con Qiskit. Visualizamos estados y operaciones cuánticas e identificamos el entrelazamiento como un recurso clave en los circuitos cuánticos. Escribimos nuestra primera simulación de circuito cuántico usando Qiskit.',
 
-      course_desc_33: 'Viernes – 23 de mayo, 5:00 PM (GST) [y] 8 de agosto, 8:00 PM (GST)',
+      course_desc_33: 'Martes – 19 de mayo, 7:00 AM  - 8:30 AM (UTC-6)',
       course_desc_34: 'Protocolos cuánticos. Revisamos los protocolos fundamentales de superdense coding y teleportación cuántica. Para preparar la discusión sobre algoritmos cuánticos, introducimos ideas de la teoría de la complejidad computacional.',
 
-      course_desc_35: 'Sábado – 24 de mayo, 5:00 PM (GST) [y] 9 de agosto, 8:00 PM (GST)',
+      course_desc_35: 'Miércoles – 20 de mayo, 7:00 AM  - 8:30 AM (UTC-6)',
       course_desc_36: 'Introducción a la complejidad de consultas cuánticas. Introducimos ideas de computación reversible y analizamos el cálculo del phase kickback. Resolvemos problemas simples utilizando nuestro primer algoritmo cuántico en el modelo de complejidad de consultas.',
 
-      course_desc_37: 'Domingo – 25 de mayo, 5:00 PM (GST) [y] 10 de agosto, 8:00 PM (GST)',
+      course_desc_37: 'Jueves – 21 de mayo, 7:00 AM  - 8:30 AM (UTC-6)',
       course_desc_38: 'Introducción a los algoritmos cuánticos. Revisamos los algoritmos Deutsch-Jozsa y Bernstein-Vazirani.',
 
-      course_desc_39: 'Lunes – 26 de mayo, 5:00 PM (GST) [y] 11 de agosto, 8:00 PM (GST)',
+      course_desc_39: 'Viernes – 22 de mayo, 7:00 AM  - 8:30 AM (UTC-6)',
       course_desc_40: 'Algoritmo de Simon. Analizamos el algoritmo de Simon y revisamos la estructura de los algoritmos cuánticos en el modelo de complejidad de consultas.',
 
-      course_desc_41: 'Martes – 27 de mayo, 5:00 PM (GST) [y] 12 de agosto, 8:00 PM (GST)',
+      course_desc_41: 'Sábado – 23 de mayo, 7:00 AM  - 8:30 AM (UTC-6)',
       course_desc_42: 'Algoritmo de Grover. Mostramos una mejora cuadrática para el problema de búsqueda no estructurada utilizando el algoritmo de Grover.',
 
-      course_desc_43: 'Miércoles – 28 de mayo, 5:00 PM (GST) [y] 13 de agosto, 8:00 PM (GST)',
+      course_desc_43: 'Domingo – 24 de mayo, 7:00 AM  - 8:30 AM (UTC-6)',
       course_desc_44: 'Resolución del problema Max-Cut mediante Grover. Combinamos ideas de todo el taller para resolver el problema Max-Cut usando el algoritmo de Grover.',
+
+
+
+
+
+
 
       course_title_6: 'Talleres cuánticos | Tareas y certificación',
 
@@ -279,13 +289,14 @@ export class LanguageService {
       stat_days: 'Days',
 
       // TIMELINE
-      time_title: 'Road to Hackathon',
-      time_jan: 'FEB 2026', time_jan_t: 'Official Launch', time_jan_d: 'Press conference, committee intro, and call for entries',
-      time_mar: 'MARCH', time_mar_t: 'Training', time_mar_d: 'Quantum Computing training courses delivered by qBraid® and water challenges',
-      time_apr: 'APRIL', time_apr_t: 'Selection', time_apr_d: 'Profile evaluation and hybrid team formation',
-      time_may: 'MAY', time_may_t: 'Bootcamps', time_may_d: 'Technical mentorship sessions with industry experts',
-      time_event_date: 'JUN 29 - JUL 01', time_event_t: 'HACKATHON LATAM 2026', time_event_d: '3 days of intensive development. (Arrival: June 28)',
-      time_aug: 'AUGUST', time_aug_t: 'Incubation', time_aug_d: 'Follow-up on winning prototypes.',
+      time_title: 'Road to the Hackathon',
+      time_jan: 'FEB 2026', time_jan_t: 'Official Launch', time_jan_d: 'Press conference, committee presentation, and call for applications opening',
+      //time_mar: 'MARCH', time_mar_t: 'Training', time_mar_d: 'QComputing training courses delivered by qBraid® and water-related challenges',
+      time_apr: 'MAY', time_apr_t: 'Selection', time_apr_d: 'Profile evaluation and formation of hybrid teams: Confirmation request',
+      time_may: 'MAY 15-24', time_may_t: 'Bootcamps', time_may_d: 'Technical courses and mentoring with industry experts Mon–Fri 7:00 AM - 8:30 AM (UTC-6)',
+      time_event_date: '29 JUN - 01 JUL', time_event_t: 'HACKATHON LATAM 2026', time_event_d: '3 days of intensive development (Arrival: June 28)',
+      time_aug: 'AUGUST', time_aug_t: 'Incubation', time_aug_d: 'Follow-up on winning prototypes',
+
 
       // GALLERY
       gal_title: 'VENUE: PUEBLA',
@@ -379,7 +390,7 @@ export class LanguageService {
       bio_david:'Dr. David Eduardo Pinto Avendaño is a researcher, academic leader, and innovation strategist with extensive experience in artificial intelligence, advanced computing, and technology transfer. He currently serves as Director of the Directorate of Innovation and Knowledge Transfer (DITCo) at the Benemérita Universidad Autónoma de Puebla (BUAP), where he leads initiatives that connect cutting‑edge research, industry collaboration, and applied technological development. His work spans artificial intelligence, data science, intelligent systems, and emerging technologies, with a focus on translating scientific knowledge into real‑world impact. He has coordinated and participated in multiple national and international R&D projects, including research‑driven platforms, experimental laboratories, and innovation ecosystems aligned with Industry 4.0. In this Quantum Computing Hackathon, he contributes a strategic perspective on advanced computing paradigms and the responsible adoption of disruptive technologies to address complex scientific, industrial, and societal challenges.',
 
       // Courses
-      course_title_1: 'QWorld OQI Hackathon QC Certification Courses (Two Courses) | May 19-28, 2026 (assessments due June 16) or June 4-13, 2026 (assessments due September 4)',
+      course_title_1: 'QWorld OQI Hackathon QC Certification Courses (Two Courses) | May 15-24, 2026 (assessments due June 16) or June 4-13, 2026 (assessments due September 4)',
       course_desc_1: 'To ensure participants of ',
       course_desc_1_2: '(OQI) supported hackathons are equipped with the necessary skills, QWorld offers an education program covering quantum computing theoretical and applied skills (foundation to advanced skills). This virtual course will offer a high-quality Certification upon finishing the entire course and activities.',
       course_desc_2: 'Kindly note that all students with little or no knowledge of quantum computing are required to complete a virtual course (ninety minutes per session and ten sessions total) curated by QWorld and tailored specifically to quantum hackathons. The course will be self-paced. Successful participants will receive a certification upon completion of this online course.',
@@ -415,25 +426,41 @@ export class LanguageService {
       course_desc_23: 'and',
       course_desc_24: '2. June 4th to June 13th, 2026',
       course_title_5: 'QBronze + QNickel',
-      course_desc_25: 'Monday – May 19, 5:00 PM (GST) [and] August 4, 8 PM (GST)',
-      course_desc_26: 'The session covers course logistics and provides a general introducing to qauntum computing from a computer science perspective.',
-      course_desc_27: 'Tuesday – May 20, 5:00 PM (GST) [and] August 5, 8 PM (GST)',
-      course_desc_28: 'We introduce the mathematical framework for representing classical probabilistic systems and their evolution under stochastic operations.',
-      course_desc_29: 'Wednesday – May 21, 5:00 PM (GST) [and] August 6, 8 PM (GST)',
-      course_desc_30: 'We generalize our formulation to allow representation of quantum information, its evolution under unitary operations and extracting information via measurements.',
-      course_desc_31: 'Thursday – May 22, 5:00 PM (GST) [and] August 7, 8 PM (GST)',
-      course_desc_32: 'Quantum Operations & Qiskit Programming, we visualize quantum states and operations and identify entanglement as a key resource in quantum circuits. We write our first quantum circuit simulation using Qiskit.',
-      course_desc_33: 'Friday – May 23, 5:00 PM (GST) [and] August 8, 8 PM (GST)',
-      course_desc_34: 'Quantum Protocols, We review the foundational protocols for super dense coding and quantum teleportation. To set the stage for our upcoming discussion of quantum algorithms, we introduce ideas from computational complexity theory.',
-      course_desc_35: 'Saturday – May 24, 5:00 PM (GST) [and] August 9, 8 PM (GST)',
-      course_desc_36: 'Introduction to Quantum Query Complexity, We introduce ideas from reversible computation and work through the calculation for phase kickback. We solve toy problems using our first quantum algorithm in the quantum query complexity model.',
-      course_desc_37: 'Sunday – May 25, 5:00 PM (GST) [and] August 10, 8 PM (GST)',
-      course_desc_38: 'Introduction to Quantum Algorithms We review the Deutsch-Josza and Bernstein-Vazirani algorithms.',
-      course_desc_39: 'Monday – May 26, 5:00 PM (GST) [and] August 11, 8 PM (GST)',
-      course_desc_40: 'Simon’s Algorithm, We discuss Simon’s Algorithm and review the structure of quantum algorithm in query complexity model.',
-      course_desc_41: 'Tuesday – May 27, 5:00 PM (GST) [and] August 12, 8 PM (GST)',    
-      course_desc_42: 'Grover’s Algorithm, We show a quadratic improvement for the unstructured search problem using Grover’s algorithm.',
-      course_desc_43: 'Wednesday – May 28, 5:00 PM (GST) [and] August 13, 8 PM (GST)',
+
+
+
+
+
+      course_desc_25: 'Friday – May 15, 7:00 AM - 8:30 AM (UTC-6)',
+      course_desc_26: 'The session covers course logistics and provides a general introduction to quantum computing from a computer science perspective.',
+
+      course_desc_27: 'Saturday – May 16, 7:00 AM - 8:30 AM (UTC-6)',
+      course_desc_28: 'We introduce the mathematical framework to represent classical probabilistic systems and their evolution under stochastic operations.',
+
+      course_desc_29: 'Sunday – May 17, 7:00 AM - 8:30 AM (UTC-6)',
+      course_desc_30: 'We generalize the formulation to allow the representation of quantum information, its evolution under unitary operations, and the extraction of information through measurements.',
+
+      course_desc_31: 'Monday – May 18, 7:00 AM - 8:30 AM (UTC-6)',
+      course_desc_32: 'Quantum operations and programming with Qiskit. We visualize quantum states and operations and identify entanglement as a key resource in quantum circuits. We write our first quantum circuit simulation using Qiskit.',
+
+      course_desc_33: 'Tuesday – May 19, 7:00 AM - 8:30 AM (UTC-6)',
+      course_desc_34: 'Quantum protocols. We review the fundamental protocols of superdense coding and quantum teleportation. To prepare for the discussion on quantum algorithms, we introduce ideas from computational complexity theory.',
+
+      course_desc_35: 'Wednesday – May 20, 7:00 AM - 8:30 AM (UTC-6)',
+      course_desc_36: 'Introduction to quantum query complexity. We introduce ideas of reversible computation and analyze the phase kickback effect. We solve simple problems using our first quantum algorithm in the query complexity model.',
+
+      course_desc_37: 'Thursday – May 21, 7:00 AM - 8:30 AM (UTC-6)',
+      course_desc_38: 'Introduction to quantum algorithms. We review the Deutsch–Jozsa and Bernstein–Vazirani algorithms.',
+
+      course_desc_39: 'Friday – May 22, 7:00 AM - 8:30 AM (UTC-6)',
+      course_desc_40: 'Simon’s algorithm. We analyze Simon’s algorithm and review the structure of quantum algorithms in the query complexity model.',
+
+      course_desc_41: 'Saturday – May 23, 7:00 AM - 8:30 AM (UTC-6)',
+      course_desc_42: 'Grover’s algorithm. We demonstrate a quadratic speedup for the unstructured search problem using Grover’s algorithm.',
+
+      course_desc_43: 'Sunday – May 24, 7:00 AM - 8:30 AM (UTC-6)',
+
+      
       course_desc_44: 'Solving Max Cut via Grover, We combine ideas from the entire workshop to solve the max-cut problem using Grover’s algorithm.',
       course_title_6: 'Quantum workshops | Homework and Certificate',
       course_desc_45: 'We will use Canvas learning management system for homework tracking. All assessments are due by April 23.',

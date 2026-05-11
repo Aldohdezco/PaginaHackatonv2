@@ -29,7 +29,7 @@ export class SponsorsComponent {
     { name: 'qBraid', img: '/images/qbraid.png', url: 'https://qbraid.com/' },
     { name: 'UNESCO', img: '/images/unesco.png', url: 'https://www.unesco.org/' },
     //{ name: 'Microsoft', img: '/images/microsoft.png', url: 'https://www.microsoft.com/' },
-    //{ name: 'QCentroid', img: '/images/qcentroid.png', url: 'https://qcentroid.xyz/' },
+    { name: 'QCentroid', img: '/images/Qcentroid.png', url: 'https://qcentroid.xyz/' },
     //{ name: 'Mastercard', img: '/images/logo_mastercard.webp', url: 'https://www.mastercard.com.mx/' },
   ];
 }
