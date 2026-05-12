@@ -115,57 +115,37 @@
 
       <br><br>
       <h3>{{ lang.t.course_title_5 }}</h3>
-      <p> 
-        <strong>{{ lang.t.course_desc_25 }}</strong>
-        <br>
-        {{ lang.t.course_desc_26 }}
-        <br><br>
+      <div class="calendar-wrapper">
+        <div class="calendar-nav">
+          <button class="month-btn" type="button" (click)="previousMonth()" aria-label="Mes anterior">&lt;</button>
+          <div class="calendar-header">{{ currentMonthTitle }}</div>
+          <button class="month-btn" type="button" (click)="nextMonth()" aria-label="Mes siguiente">&gt;</button>
+        </div>
 
-        <strong>{{ lang.t.course_desc_27 }}</strong>
-        <br>
-        {{ lang.t.course_desc_28 }}
-        <br><br>
+        <div class="calendar-grid weekdays">
+          <div class="weekday" *ngFor="let dayName of calendarWeekDays">{{ dayName }}</div>
+        </div>
 
-        <strong>{{ lang.t.course_desc_29 }}</strong>
-        <br>
-        {{ lang.t.course_desc_30 }}
-        <br><br>
+        <div class="calendar-grid days">
+          <div
+            class="day-cell"
+            *ngFor="let day of currentCalendarDays"
+            [class.empty]="!day"
+            [class.has-event]="hasEvent(day)"
+            [attr.tabindex]="hasEvent(day) ? 0 : null"
+          >
+            <ng-container *ngIf="day as dayNumber">
+              <span class="day-number">{{ dayNumber }}</span>
 
-        <strong>{{ lang.t.course_desc_31 }}</strong>
-        <br>
-        {{ lang.t.course_desc_32 }}
-        <br><br>
-
-        <strong>{{ lang.t.course_desc_33 }}</strong>
-        <br>
-        {{ lang.t.course_desc_34 }}
-        <br><br>
-
-        <strong>{{ lang.t.course_desc_35 }}</strong>
-        <br>
-        {{ lang.t.course_desc_36 }}
-        <br><br>
-
-        <strong>{{ lang.t.course_desc_37 }}</strong>
-        <br>
-        {{ lang.t.course_desc_38 }}
-        <br><br>
-
-        <strong>{{ lang.t.course_desc_39 }}</strong>
-        <br>
-        {{ lang.t.course_desc_40 }}
-        <br><br>
-
-        <strong>{{ lang.t.course_desc_41 }}</strong>
-        <br>
-        {{ lang.t.course_desc_42 }}
-        <br><br>
-
-        <strong>{{ lang.t.course_desc_43 }}</strong>
-        <br>
-        {{ lang.t.course_desc_44 }}
-        <br><br>
-      </p>
+              <div class="event-tooltip" *ngIf="getEventByDate(dayNumber) as event">
+                <p class="event-date">{{ dayNumber }} {{ activeMonth === 'may' ? 'mayo' : 'junio' }}</p>
+                <p class="event-title">{{ event.title }}</p>
+                <p class="event-time" *ngIf="event.details">{{ event.details }}</p>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
 
       <h2>{{ lang.t.course_title_6 }}</h2>
       <p>
