@@ -10,6 +10,15 @@ type PersonCard = {
   bioKey?: string;
 };
 
+type CalendarEvent = {
+  date: number;
+  speaker: string;
+  title: string;
+  time: string;
+  organization: string;
+  email?: string;
+};
+
 @Component({
   selector: 'app-mentors',
   standalone: true,
@@ -75,17 +84,84 @@ export class MentorsComponent {
     }
   ];
 
-  //Ponentes
-  mentorsList: PersonCard[] = [
-    { name: 'Diana Franklin', role: 'Speaker', company: 'University of Chicago', image: this.defaultImage },
-    { name: 'Guohua Sun', role: 'Speaker', company: 'IPN - CIC', image: this.defaultImage },
-    { name: 'Pablo Barberis', role: 'Speaker', company: 'UNAM - IIMAS', image: this.defaultImage },
-    { name: 'Alexandra de Castro', role: 'Speaker', company: 'Quandela', image: this.defaultImage },
-    { name: 'Camile Coti', role: 'Speaker', company: 'ETS - Montreal', image: this.defaultImage },
-    { name: 'Sergio Boixo', role: 'Speaker', company: 'Google', image: this.defaultImage },
-    { name: 'Gregory Shutko', role: 'Speaker', company: 'QCentroid', image: this.defaultImage },
-    { name: 'Claudia Zendejas Morales', role: 'Speaker', company: 'UNAM', image: this.defaultImage }
+  calendarWeekDays: string[] = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
+
+  mayCalendarDays: (number | null)[] = [
+    null, null, null, null, 1, 2, 3,
+    4, 5, 6, 7, 8, 9, 10,
+    11, 12, 13, 14, 15, 16, 17,
+    18, 19, 20, 21, 22, 23, 24,
+    25, 26, 27, 28, 29, 30, 31
   ];
+
+  mayEvents: CalendarEvent[] = [
+    {
+      date: 18,
+      speaker: 'Hanna Terletska, Ph.D.',
+      title: 'The Quantum Shift: From Quantum Physics to Quantum Power',
+      time: '10:00 AM (Mexico City)',
+      organization: 'Middle Tennessee State University / Universidad de Tennessee',
+      email: 'Hanna.Terletska@mtsu.edu'
+    },
+    {
+      date: 19,
+      speaker: 'Diana Franklin',
+      title: 'Unmasking Quantum: Designing Learning Experiences that are Engaging and Build Intuition',
+      time: '9:30 AM (Mexico City) / 10:30 AM (Chicago)',
+      organization: 'Department of Computer Science, The University of Chicago',
+      email: 'diana.franklin@gmail.com'
+    },
+    {
+      date: 21,
+      speaker: 'GuoHua Sun',
+      title: 'La computación cuántica apoyará el desarrollo de IA',
+      time: '10:00 AM (Mexico City)',
+      organization: 'Centro de Investigación en Computación, Instituto Politécnico Nacional',
+      email: 'gsun@cic.ipn.mx'
+    },
+    {
+      date: 22,
+      speaker: 'Pablo Barberis Blostein',
+      title: '¿Por qué las computadoras cuánticas tendrían ventajas sobre las clásicas?',
+      time: '10:00 AM (Mexico City)',
+      organization: 'Departamento de Física Matemática, IIMAS - UNAM',
+      email: 'pablobb@gmail.com'
+    },
+    {
+      date: 25,
+      speaker: 'Camille Cotti',
+      title: 'Hybrid, parallel programming for quantum-classical high-performance programs',
+      time: '10:00 AM (Mexico City) / 12:00 PM (Montreal)',
+      organization: 'Département de génie logiciel et TI, École de Technologie Supérieure, Montreal',
+      email: 'camille.coti@etsmtl.ca'
+    },
+    {
+      date: 26,
+      speaker: 'Claudia Zendejas-Morales',
+      title: 'Quantum Machine Learning: de las ideas fundamentales a los retos actuales',
+      time: '10:00 AM (Mexico City) / 18:00 (Dinamarca)',
+      organization: 'University of Copenhagen',
+      email: 'clausia@ciencias.unam.mx'
+    },
+    {
+      date: 29,
+      speaker: 'Flor Lizeth Torres Ortíz',
+      title: 'Diagnóstico, Optimización y Control (DOC) de Redes de Distribución de Agua',
+      time: 'Horario por confirmar',
+      organization: 'Ponencia especial'
+    }
+  ];
+
+  getEventByDate(date: number | null): CalendarEvent | undefined {
+    if (!date) {
+      return undefined;
+    }
+    return this.mayEvents.find((event) => event.date === date);
+  }
+
+  hasEvent(date: number | null): boolean {
+    return !!this.getEventByDate(date);
+  }
 
   mentorsAndJudgesList: PersonCard[] = [
     // { name: 'Miguel de Jesús Gónzalez Martínez', role: 'Mentor', company: 'Facultad de Ciencias - UNAM', image: this.defaultImage },

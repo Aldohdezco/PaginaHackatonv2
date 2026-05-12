@@ -57,7 +57,7 @@ export class LanguageService {
       btn_explore: 'EXPLORAR',
 
       // --- MENTORES (Secciones Divididas) ---
-      speakers_title: 'LISTA TENTATIVA DE PONENTES',
+      speakers_title: 'CALENDARIO DE PONENCIAS | MAYO 2026',
       committee_title: 'COMITÉ ORGANIZADOR',
       judges_title: 'JUECES Y MENTORES POR DEFINIR',
 
@@ -308,7 +308,7 @@ export class LanguageService {
 
       // --- MENTORS (Translated) ---
 
-      speakers_title: 'TENTATIVE SPEAKERS LIST',
+      speakers_title: 'TALKS CALENDAR | MAY 2026',
       committee_title: 'LOCAL ORGANIZING COMMITTEE',
       judges_title: 'JUDGES & MENTORS COMING SOON',
       // --- SPONSORS (Translated) ---

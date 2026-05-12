@@ -44,30 +44,31 @@
       <span>{{ langService.t.speakers_title }}</span>
     </h2>
 
-    <div class="grid">
-      <div class="tech-card" *ngFor="let person of mentorsList">
-        <span class="corner top-left"></span>
-        <span class="corner top-right"></span>
-        <span class="corner bottom-left"></span>
-        <span class="corner bottom-right"></span>
+    <div class="calendar-wrapper">
+      <div class="calendar-header">Mayo 2026</div>
 
-        <div class="img-container">
-          <img [src]="person.image" [alt]="person.name">
-          <div class="scanner-line"></div>
-          <div class="overlay"></div>
-        </div>
+      <div class="calendar-grid weekdays">
+        <div class="weekday" *ngFor="let dayName of calendarWeekDays">{{ dayName }}</div>
+      </div>
 
-        <div class="info">
-          <h3>{{ person.name }}</h3>
-          <p class="role">{{ person.role }}</p>
-          <div class="company-badge">
-            <i class="fa-solid fa-user-gear"></i> {{ person.company }}
-          </div>
-        </div>
+      <div class="calendar-grid days">
+        <div
+          class="day-cell"
+          *ngFor="let day of mayCalendarDays"
+          [class.empty]="!day"
+          [class.has-event]="hasEvent(day)"
+          [attr.tabindex]="hasEvent(day) ? 0 : null"
+        >
+          <ng-container *ngIf="day as dayNumber">
+            <span class="day-number">{{ dayNumber }}</span>
 
-        <!-- BIO (hover) -->
-        <div class="bio-overlay" *ngIf="person.bioKey">
-          {{ langService.t[person.bioKey] }}
+            <div class="event-tooltip" *ngIf="getEventByDate(dayNumber) as event">
+              <p class="event-date">{{ dayNumber }} mayo</p>
+              <p class="event-title">{{ event.title }}</p>
+              <p class="event-speaker">{{ event.speaker }}</p>
+              <p class="event-time">{{ event.time }}</p>
+            </div>
+          </ng-container>
         </div>
       </div>
     </div>
