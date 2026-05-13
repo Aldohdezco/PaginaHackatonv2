@@ -143,6 +143,14 @@ export class MentorsComponent {
       organization: 'University of Copenhagen',
       email: 'clausia@ciencias.unam.mx'
     },
+        {
+      date: 28,
+      speaker: 'Salvador E. Venegas-Andraca',
+      title: 'Introducción a las Caminatas Cuánticas: fundamentos, algoritmos y aplicaciones.',
+      time: '10:00 AM (Mexico City)',
+      organization: 'Tecnológico de Monterrey, Escuela de Ingeniería y Ciencias',
+      email: 'clausia@ciencias.unam.mx'
+    },
     {
       date: 29,
       speaker: 'Flor Lizeth Torres Ortíz',

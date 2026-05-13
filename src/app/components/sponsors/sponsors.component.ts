@@ -25,11 +25,11 @@ export class SponsorsComponent {
   // GRUPO 2: PATROCINADORES
   sponsors = [
     { name: 'Secretaría de Ciencia', img: '/images/gob.jpg', url: 'https://concytep.puebla.gob.mx/' },
+    { name: 'QCentroid', img: '/images/Qcentroid.png', url: 'https://qcentroid.xyz/' },
     { name: 'Gobierno de Puebla', img: '/images/logo-puebla.png', url: 'https://www.puebla.gob.mx/' },
     { name: 'qBraid', img: '/images/qbraid.png', url: 'https://qbraid.com/' },
     { name: 'UNESCO', img: '/images/unesco.png', url: 'https://www.unesco.org/' },
     //{ name: 'Microsoft', img: '/images/microsoft.png', url: 'https://www.microsoft.com/' },
-    { name: 'QCentroid', img: '/images/Qcentroid.png', url: 'https://qcentroid.xyz/' },
     //{ name: 'Mastercard', img: '/images/logo_mastercard.webp', url: 'https://www.mastercard.com.mx/' },
   ];
 }

@@ -140,57 +140,39 @@ export class LanguageService {
       bio_david:'El Dr. David Eduardo Pinto Avendaño es investigador, líder académico y estratega de innovación con amplia experiencia en inteligencia artificial, cómputo avanzado y transferencia tecnológica. Actualmente dirige la Dirección de Innovación y Transferencia del Conocimiento (DITCo) de la Benemérita Universidad Autónoma de Puebla (BUAP), donde impulsa iniciativas que conectan investigación de vanguardia, colaboración con la industria y desarrollo tecnológico aplicado. Su trabajo abarca inteligencia artificial, ciencia de datos, sistemas inteligentes y tecnologías emergentes, con énfasis en traducir el conocimiento científico en impacto real. Ha coordinado y participado en múltiples proyectos nacionales e internacionales de I+D, incluyendo plataformas, laboratorios experimentales y ecosistemas de innovación alineados con la Industria 4.0. En este Hackathon de Computación Cuántica, aporta una visión estratégica sobre paradigmas de cómputo avanzado y la adopción responsable de tecnologías disruptivas para abordar desafíos científicos, industriales y sociales complejos.',
 
       // Courses
-      course_title_1: 'Cursos de Certificación QC del Hackathon QWorld OQI (Dos Cursos) | 15–24 de mayo de 2026 y del 4 al 13 de junio de 2026 -Fechas TENTATIVAS-',
-      course_desc_1: 'Para garantizar que los participantes de los hackathons apoyados por el ',
-
-      course_desc_1_2: 'Los hackathons apoyados están diseñados para asegurar que los participantes adquieran las habilidades necesarias mediante un programa educativo que cubre aspectos teóricos y aplicados de la computación cuántica, desde nivel básico hasta avanzado. Este curso virtual ofrecerá una certificación de alta calidad al finalizar todo el curso y las actividades.',
-
-      course_desc_2: 'Se informa que todos los estudiantes con poco o ningún conocimiento previo en computación cuántica deberán completar un curso virtual (noventa minutos por sesión y un total de diez sesiones) diseñado por QWorld y adaptado específicamente para hackathons de computación cuántica. El curso será a tu propio ritmo. Los participantes que lo completen exitosamente recibirán una certificación.',
-
-      course_desc_3: 'Te invitamos a una serie de talleres',
-
-      course_desc_3_2: 'en el campo de la computación y programación cuántica. Durante los talleres utilizaremos Discord para la comunicación y realizaremos las sesiones mediante reuniones por Zoom. Los cuadernos Jupyter y las conferencias por Zoom estarán en inglés. Durante todos los talleres se contará con mentores que responderán preguntas y asesorarán el progreso de aprendizaje.',
-
+      course_title_1: 'Cursos de Certificación QC del Hackathon QWorld OQI (Dos Cursos) | 15–24 de mayo de 2026 y del 27 de mayo al 5 de junio de 2026',
+      // course_desc_1: 'Para garantizar que los participantes de los hackathons apoyados por el ',
+      // course_desc_1_2: 'Los hackathons apoyados están diseñados para asegurar que los participantes adquieran las habilidades necesarias mediante un programa educativo que cubre aspectos teóricos y aplicados de la computación cuántica, desde nivel básico hasta avanzado. Este curso virtual ofrecerá una certificación de alta calidad al finalizar todo el curso y las actividades.',
+      // course_desc_2: 'Se informa que todos los estudiantes con poco o ningún conocimiento previo en computación cuántica deberán completar un curso virtual (noventa minutos por sesión y un total de diez sesiones) diseñado por QWorld y adaptado específicamente para hackathons de computación cuántica. El curso será a tu propio ritmo. Los participantes que lo completen exitosamente recibirán una certificación.',
+      // course_desc_3: 'Te invitamos a una serie de talleres',
+      // course_desc_3_2: 'en el campo de la computación y programación cuántica. Durante los talleres utilizaremos Discord para la comunicación y realizaremos las sesiones mediante reuniones por Zoom. Los cuadernos Jupyter y las conferencias por Zoom estarán en inglés. Durante todos los talleres se contará con mentores que responderán preguntas y asesorarán el progreso de aprendizaje.',
+      
       course_title_2: 'Acerca del programa',
-
       course_subtitle_1: 'Bronze-Qiskit',
-
       course_desc_4: 'QBronze-Qiskit es la serie de talleres introductorios de programación cuántica de QWorld.',
-
       course_desc_4_2: 'Consiste en una colección de cuadernos Jupyter, y cada uno incluye múltiples tareas de programación para ofrecer experiencias prácticas. Bronze-Qiskit es una versión activa de Bronze que utiliza Qiskit como marco de programación cuántica. El material del curso está diseñado para cualquier persona que desee aprender los fundamentos de la computación cuántica y escribir programas cuánticos simples. El único requisito previo es contar con conocimientos básicos de programación en Python (por ejemplo, uso de condicionales y ciclos).',
 
       course_desc_5: 'Bronze-Qiskit cuenta con cinco secciones principales',
-
       course_desc_5_2: ', y para cada una se recomienda dedicar entre 3 y 4 horas. Su contenido incluye fundamentos de sistemas clásicos, fundamentos de sistemas cuánticos, operadores cuánticos sobre un qubit, entrelazamiento y protocolos cuánticos básicos, así como el algoritmo de búsqueda cuántica.',
-
       course_subtitle_2: 'QNickel',
-
       course_desc_6: 'Nickel es una colección de cuadernos Jupyter, y cada uno incluye múltiples tareas de programación para ofrecer experiencias prácticas. Es la continuación de Bronze, donde se introdujeron los fundamentos de la computación y programación cuántica. Nickel incluye dos marcos de programación cuántica diferentes: Qiskit y Cirq.',
-
       course_desc_7: 'Nickel cuenta con tres secciones principales:',
-
       course_desc_7_2: 'simulación de compuertas clásicas, algoritmos cuánticos convencionales (algoritmo de Deutsch, Deutsch-Jozsa, Bernstein-Vazirani, algoritmo de Simon) y el algoritmo de Grover para el problema de Max-Cut (revisión del algoritmo de Grover, sumadores y problema Max-Cut).',
-
-      course_title_3: 'Nuestro equipo',
-
-      course_desc_8: 'Organizadores:',
-      course_desc_9: 'Jibran Rashid (QWorld), Sana Odeh',
-
-      course_desc_10: 'Líder:',
-      course_desc_11: 'Jibran Rashid (QBronze y QNickel)',
-
-      course_desc_12: 'Mentores:',
-      course_desc_13: 'Kenneth Isamade, Maja, Lorraine Tsitsi Majiri, Rumlah Amer, Razeen ud Din, Amrit Chhetri',
-
-      course_desc_14: 'Equipo-Sección:',
-      course_desc_15: 'Audrey Himmer',
-      course_desc_15_1: 'y Marianne Schoerling',
-
-      course_desc_16: 'Equipo técnico:',
-      course_desc_17: 'Kenneth Isamade (Canvas)',
-
-      course_desc_18: 'Contacto:',
-      course_desc_19: 'jibran.rashid@qworld.net',
+      
+      // course_title_3: 'Nuestro equipo',
+      // course_desc_8: 'Organizadores:',
+      // course_desc_9: 'Jibran Rashid (QWorld), Sana Odeh',
+      // course_desc_10: 'Líder:',
+      // course_desc_11: 'Jibran Rashid (QBronze y QNickel)',
+      // course_desc_12: 'Mentores:',
+      // course_desc_13: 'Kenneth Isamade, Maja, Lorraine Tsitsi Majiri, Rumlah Amer, Razeen ud Din, Amrit Chhetri',
+      // course_desc_14: 'Equipo-Sección:',
+      // course_desc_15: 'Audrey Himmer',
+      // course_desc_15_1: 'y Marianne Schoerling',
+      // course_desc_16: 'Equipo técnico:',
+      // course_desc_17: 'Kenneth Isamade (Canvas)',
+      // course_desc_18: 'Contacto:',
+      // course_desc_19: 'jibran.rashid@qworld.net',
 
       course_title_4: 'Calendario de los Cursos de Certificación QC del Hackathon QWorld OQI (Dos Cursos)',
 
@@ -198,13 +180,12 @@ export class LanguageService {
 
       course_desc_21: 'Se espera que los participantes sigan los materiales del taller y completen las tareas de manera independiente. El curso será a tu propio ritmo y se llevará a cabo en las siguientes fechas:',
 
-      course_desc_22: '1. Del 15 al 24 de mayo de 2026',
-      course_desc_23: 'y',
-      course_desc_24: '2. Del 4 al 13 de junio de 2026',
+      course_desc_22: 'Introducción a los cursos 14 de Mayo de 2026',
+      course_desc_23: 'QBronze del 15 al 24 de mayo de 2026 y QNickel del 4 al 13 de junio de 2026',
 
+
+      //    course_desc_22: '1. May 15th to May 24th, 2026 and 2. June 4th to June 13th, 2026',
       course_title_5: 'QBronze + QNickel',
-
-
 
 
 
@@ -405,26 +386,25 @@ export class LanguageService {
       course_desc_6: 'Nickel is a collection of Jupyter notebooks, and each notebook has many programming tasks to provide hands-on experiences. It is a continuation of Bronze, in which the basics of quantum computing and quantum programming were introduced. Nickel includes two different quantum programming frameworks, Qiskit and Cirq.',
       course_desc_7: 'Nickel has three main sections: ',
       course_desc_7_2: 'Simulation of Classical Gates, Conventional Quantum Algorithms (Deutsch’s algorithm, Deutsch-Jozsa algorithm, Bernstein-Vazirani algorithm, Simon’s Algorithm), and Grover’s Algorithm for Max-Cut Problem (Revision of Grover’s algorithm, adders, Max-Cut problem).',
-      course_title_3: 'Our Team',
-      course_desc_8: 'Organizers:',
-      course_desc_9: 'Jibran Rashid (QWorld), Sana Odeh',
-      course_desc_10: 'Leader:',
-      course_desc_11: 'Jibran Rashid (QBronze & QNickel))',
-      course_desc_12: 'Mentors:',
-      course_desc_13: 'Kenneth Isamade, Maja, Lorraine Tsitsi Majiri, Rumlah Amer, Razeen ud Din, Amrit Chhetri',
-      course_desc_14: 'Team-Section:',
-      course_desc_15: 'Audrey Himmer',
-      course_desc_15_1: ' and Marianne Schoerling',
-      course_desc_16: 'Technical Staff:',
-      course_desc_17: 'Kenneth Isamade (Canvas)',
-      course_desc_18: 'Contact:',
-      course_desc_19: 'jibran.rashid@qworld.net',
+      // course_title_3: 'Our Team',
+      // course_desc_8: 'Organizers:',
+      // course_desc_9: 'Jibran Rashid (QWorld), Sana Odeh',
+      // course_desc_10: 'Leader:',
+      // course_desc_11: 'Jibran Rashid (QBronze & QNickel))',
+      // course_desc_12: 'Mentors:',
+      // course_desc_13: 'Kenneth Isamade, Maja, Lorraine Tsitsi Majiri, Rumlah Amer, Razeen ud Din, Amrit Chhetri',
+      // course_desc_14: 'Team-Section:',
+      // course_desc_15: 'Audrey Himmer',
+      // course_desc_15_1: ' and Marianne Schoerling',
+      // course_desc_16: 'Technical Staff:',
+      // course_desc_17: 'Kenneth Isamade (Canvas)',
+      // course_desc_18: 'Contact:',
+      // course_desc_19: 'jibran.rashid@qworld.net',
       course_title_4: 'Schedule of QWorld OQI Hackathon QC Certification Courses (Two Courses)',
       course_desc_20: 'The workshop will be held during ten days, approximately requiring 30 hours of training.',
       course_desc_21: 'Participants are expected to follow the workshop materials and complete the tasks on their own. The course will be self-paced and will take place:',
-      course_desc_22: '1. May 15th to May 24th, 2026',
-      course_desc_23: 'and',
-      course_desc_24: '2. June 4th to June 13th, 2026',
+      course_desc_22: 'Introduction to the courses - May 14, 2026',
+      course_desc_23: 'QBronze from May 15 to 24, 2026 and QNickel from June 4 to 13, 2026',
       course_title_5: 'QBronze + QNickel',
 
 
