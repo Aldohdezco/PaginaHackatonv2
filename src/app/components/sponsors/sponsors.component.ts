@@ -29,6 +29,7 @@ export class SponsorsComponent {
     { name: 'Gobierno de Puebla', img: '/images/logo-puebla.png', url: 'https://www.puebla.gob.mx/' },
     { name: 'qBraid', img: '/images/qbraid.png', url: 'https://qbraid.com/' },
     { name: 'UNESCO', img: '/images/unesco.png', url: 'https://www.unesco.org/' },
+    { name: 'IANNQCD', img: '/images/IANNQCD.jpeg', url: 'https://www.iann-qcd.org/' },
     //{ name: 'Microsoft', img: '/images/microsoft.png', url: 'https://www.microsoft.com/' },
     //{ name: 'Mastercard', img: '/images/logo_mastercard.webp', url: 'https://www.mastercard.com.mx/' },
   ];
