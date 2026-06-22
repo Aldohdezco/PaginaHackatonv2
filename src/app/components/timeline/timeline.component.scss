@@ -1,152 +1,168 @@
-.timeline-section {
-  padding: 80px 0;
-  background-color: #0b1120;
+$cyan: #00f0ff;
+$blue: #002e63;
+$gold: #be9f56;
+$bg: #050912;
+
+.event-schedule-section {
+  position: relative;
+  padding: 90px 20px;
   color: white;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.14), transparent 34%),
+    linear-gradient(180deg, #010203 0%, #07101f 48%, #0b1120 100%);
   overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.28) 1px, transparent 1px);
+    background-size: 34px 34px;
+    opacity: 0.08;
+    pointer-events: none;
+  }
 }
 
-.timeline {
+.schedule-shell {
   position: relative;
-  max-width: 1000px;
+  z-index: 1;
+  max-width: 1180px;
   margin: 0 auto;
+}
+
+.schedule-header {
+  text-align: center;
+  margin-bottom: 42px;
+
+  .eyebrow {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 1px solid rgba(0, 240, 255, 0.35);
+    border-radius: 999px;
+    color: $cyan;
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: rgba(0, 46, 99, 0.28);
+  }
+
+  h2 {
+    margin: 18px 0 10px;
+    font-size: clamp(2rem, 5vw, 4.2rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+  }
+
+  p {
+    color: rgba(255,255,255,0.72);
+    margin: 0;
+  }
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.day-card {
+  position: relative;
+  padding: 24px;
+  border: 1px solid rgba(0, 240, 255, 0.22);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.025));
+  box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
 
   &::after {
     content: '';
     position: absolute;
-    width: 4px;
-    background-color: #002E63;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -2px;
-  }
-}
-
-.timeline-item {
-  padding: 10px 40px;
-  position: relative;
-  width: 50%;
-  box-sizing: border-box;
-
-  &:nth-child(odd) {
-    left: 0;
-    text-align: right;
-
-    .timeline-date { right: -170px; text-align: left; }
-    .timeline-dot { right: -10px; }
-  }
-
-  &:nth-child(even) {
-    left: 50%;
-    text-align: left;
-
-    .timeline-date { left: -170px; text-align: right; }
-    .timeline-dot { left: -10px; }
-  }
-
-  .timeline-dot {
-    width: 20px; height: 20px;
-    background: #00B5E2;
+    top: -90px;
+    right: -90px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    position: absolute;
-    top: 15px;
-    z-index: 10;
-    box-shadow: 0 0 10px rgba(0, 181, 226, 0.5);
-
-    &.pulse { animation: pulse 2s infinite; }
-    &.small { width: 12px; height: 12px; top: 20px; background: #666; box-shadow: none; }
+    background: rgba(0, 240, 255, 0.15);
+    filter: blur(10px);
   }
 
-  &:nth-child(odd) .timeline-dot.small { right: -6px; }
-  &:nth-child(even) .timeline-dot.small { left: -6px; }
+  &.featured {
+    border-color: rgba(190, 159, 86, 0.45);
+    transform: translateY(-10px);
+  }
 }
 
-.timeline-content {
-  padding: 20px;
-  background: rgba(255,255,255,0.03);
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: 0.3s;
+.day-title {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 
-  h3 { color: #00B5E2; margin-bottom: 5px; font-size: 1.2rem; }
-  p { color: #ccc; margin-bottom: 10px; line-height: 1.4; }
-
-  .tag {
-    background: #002E63;
-    padding: 3px 10px;
-    font-size: 0.75rem;
-    border-radius: 15px;
-    &.main { background: #BE9F56; color: black; font-weight: bold; }
+  span {
+    color: $gold;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
   }
 
-  &:hover { background: rgba(255,255,255,0.08); }
+  h3 {
+    margin: 7px 0 0;
+    color: $cyan;
+    font-size: 1.75rem;
+
+    sup { font-size: 0.85rem; }
+  }
 }
 
-.highlight .timeline-content {
-  border-color: #00B5E2;
-  background: rgba(0, 46, 99, 0.3);
-  h3 { font-size: 1.5rem; color: white; }
-}
+.event-row {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 118px 1fr;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
 
-.timeline-item.mini {
-  .timeline-content { padding: 10px 15px; border: none; border-left: 2px solid rgba(255,255,255,0.1); background: transparent; }
-  .timeline-date { font-size: 0.85rem; top: 12px; color: #666; }
-}
+  &:last-child { border-bottom: 0; }
 
-.timeline-date {
-  position: absolute;
-  top: 18px;
-  font-weight: 700;
-  color: #BE9F56;
-  width: 150px;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(0, 181, 226, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(0, 181, 226, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 181, 226, 0); }
-}
-
-/* =========================================
-   RESPONSIVE (MÓVIL)
-   ========================================= */
-@media (max-width: 768px) {
-
-  .timeline::after {
-    left: 30px;
+  time {
+    color: rgba(255,255,255,0.72);
+    font-family: 'Courier New', monospace;
+    font-size: 0.82rem;
+    font-weight: 700;
   }
 
-  .timeline-item {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
+  strong {
+    display: block;
+    color: white;
+    font-size: 0.98rem;
+    line-height: 1.2;
+  }
 
-    &:nth-child(odd), &:nth-child(even) {
-      left: 0;
-      text-align: left;
-    }
+  small {
+    display: block;
+    margin-top: 4px;
+    color: $cyan;
+    font-size: 0.78rem;
+    opacity: 0.86;
+  }
+}
 
-    &:nth-child(odd) .timeline-dot,
-    &:nth-child(even) .timeline-dot {
-      left: 20px;
-      right: auto;
-    }
+@media (max-width: 992px) {
+  .schedule-grid { grid-template-columns: 1fr; }
+  .day-card.featured { transform: none; }
+}
 
-    &:nth-child(odd) .timeline-dot.small,
-    &:nth-child(even) .timeline-dot.small {
-      left: 24px;
-    }
-
-    &:nth-child(odd) .timeline-date,
-    &:nth-child(even) .timeline-date {
-      position: relative;
-      top: 0;
-      left: 0;
-      right: auto;
-      text-align: left;
-      margin-bottom: 5px;
-      display: block;
-      width: 100%;
-    }
+@media (max-width: 520px) {
+  .event-schedule-section { padding: 70px 14px; }
+  .day-card { padding: 20px; border-radius: 18px; }
+  .event-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
   }
 }

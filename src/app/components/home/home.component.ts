@@ -6,6 +6,7 @@ import { GalleryComponent } from '../gallery/gallery.component';
 import { TimelineComponent } from '../timeline/timeline.component';
 import { MentorsComponent } from '../mentors/mentors.component';
 import { SponsorsComponent } from '../sponsors/sponsors.component';
+import { LocationsComponent } from '../locations/locations.component';
 
 @Component({
   selector: 'app-home',
@@ -13,15 +14,14 @@ import { SponsorsComponent } from '../sponsors/sponsors.component';
   imports: [
     CommonModule,
     HeroComponent,
+    TimelineComponent,
+    LocationsComponent,
     AboutComponent,
     GalleryComponent,
-    TimelineComponent,
     MentorsComponent,
     SponsorsComponent
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
-
-}
+export class HomeComponent {}

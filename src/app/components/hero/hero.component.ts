@@ -35,7 +35,7 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
   private targetMouseX = 0;
   private targetMouseY = 0;
 
-  targetDate: number = new Date('June 28, 2026 09:00:00').getTime();
+  targetDate: number = new Date('June 29, 2026 09:00:00').getTime();
   days: string = '00'; hours: string = '00'; minutes: string = '00'; seconds: string = '00';
   interval: any;
   isBrowser: boolean;
