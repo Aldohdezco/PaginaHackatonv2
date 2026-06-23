@@ -22,12 +22,18 @@
         <div class="slide-track">
           <div class="slide" *ngFor="let sponsor of sponsors">
             <a [href]="sponsor.url" target="_blank">
-              <img [src]="sponsor.img" [alt]="sponsor.name">
+              <img
+                [src]="sponsor.img"
+                [alt]="sponsor.name"
+                [class.qcentroid-logo]="sponsor.name === 'qcentroid'">
             </a>
           </div>
           <div class="slide" *ngFor="let sponsor of sponsors">
             <a [href]="sponsor.url" target="_blank">
-              <img [src]="sponsor.img" [alt]="sponsor.name">
+              <img
+                [src]="sponsor.img"
+                [alt]="sponsor.name"
+                [class.qcentroid-logo]="sponsor.name === 'qcentroid'">
             </a>
           </div>
         </div>
