@@ -19,44 +19,27 @@
       <span>{{ langService.t.hero_date }}</span>
     </div>
 
-    <div class="quantum-timer">
-      <div class="time-prism">
-        <div class="prism-content">
-          <span class="num">{{ days }}</span>
-          <small class="label">{{ langService.t.time_d }}</small>
+    <div class="hero-gallery">
+      <div class="hero-gallery-frame">
+        <div class="hero-slide" *ngFor="let img of galleryImages; let i = index"
+             [class.active]="i === currentSlide"
+             [style.backgroundImage]="'url(' + img + ')'">
         </div>
-        <div class="prism-glow"></div>
+
+        <button class="hero-gallery-arrow prev" (click)="goToSlide(currentSlide - 1 < 0 ? galleryImages.length - 1 : currentSlide - 1)">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="hero-gallery-arrow next" (click)="goToSlide((currentSlide + 1) % galleryImages.length)">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
       </div>
+      <div class="hero-gallery-counter">{{ currentSlide + 1 }} / {{ galleryImages.length }}</div>
 
-      <div class="timer-separator">:</div>
-
-      <div class="time-prism">
-        <div class="prism-content">
-          <span class="num">{{ hours }}</span>
-          <small class="label">{{ langService.t.time_h }}</small>
-        </div>
-        <div class="prism-glow"></div>
-      </div>
-
-      <div class="timer-separator">:</div>
-
-      <div class="time-prism">
-        <div class="prism-content">
-          <span class="num">{{ minutes }}</span>
-          <small class="label">{{ langService.t.time_m }}</small>
-        </div>
-        <div class="prism-glow"></div>
-      </div>
-
-      <div class="timer-separator">:</div>
-
-      <div class="time-prism secs-prism">
-        <div class="prism-content">
-          <span class="num highlight-num">{{ seconds }}</span>
-          <small class="label">{{ langService.t.time_s }}</small>
-        </div>
-        <div class="prism-glow"></div>
-      </div>
+      <a class="hero-gallery-link"
+         href="https://photos.google.com/share/AF1QipPoi_RYdVCrfUVpDMr7m50vMnw2rlEQGn5RAdj52yLemPXDZGX-zLvSl2V51r1aUw?key=QUVfQ0V3elVkME5PX2x5OXBKWWNuNVkyZHA2QXVB"
+         target="_blank" rel="noopener noreferrer">
+        Ver álbum completo <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
     </div>
 
     <div class="buttons">

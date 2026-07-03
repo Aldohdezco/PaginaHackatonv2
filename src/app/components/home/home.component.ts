@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroComponent } from '../hero/hero.component';
-import { AboutComponent } from '../about/about.component';
-import { GalleryComponent } from '../gallery/gallery.component';
-import { TimelineComponent } from '../timeline/timeline.component';
 import { MentorsComponent } from '../mentors/mentors.component';
 import { SponsorsComponent } from '../sponsors/sponsors.component';
-import { LocationsComponent } from '../locations/locations.component';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +10,6 @@ import { LocationsComponent } from '../locations/locations.component';
   imports: [
     CommonModule,
     HeroComponent,
-    TimelineComponent,
-    LocationsComponent,
-    AboutComponent,
-    GalleryComponent,
     MentorsComponent,
     SponsorsComponent
   ],

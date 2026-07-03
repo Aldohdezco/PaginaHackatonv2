@@ -35,9 +35,12 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
   private targetMouseX = 0;
   private targetMouseY = 0;
 
-  targetDate: number = new Date('June 29, 2026 09:00:00').getTime();
-  days: string = '00'; hours: string = '00'; minutes: string = '00'; seconds: string = '00';
-  interval: any;
+  galleryImages: string[] = Array.from(
+    { length: 34 },
+    (_, i) => `/images/Foto_${i + 1}.JPG`
+  );
+  currentSlide = 0;
+  galleryInterval: any;
   isBrowser: boolean;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
@@ -48,7 +51,7 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
     window.open('https://forms.gle/iUmGVKmy8vYpbSH78', '_blank');
   }
   ngOnInit() {
-    if (this.isBrowser) this.startTimer();
+    if (this.isBrowser) this.startGalleryAutoplay();
   }
 
   ngAfterViewInit() {
@@ -59,7 +62,7 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.interval) clearInterval(this.interval);
+    if (this.galleryInterval) clearInterval(this.galleryInterval);
     if (this.isBrowser && this.animationFrameId) cancelAnimationFrame(this.animationFrameId);
   }
 
@@ -155,22 +158,18 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
     this.animationFrameId = requestAnimationFrame(this.animate.bind(this));
   }
 
-  startTimer() {
-    this.interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = this.targetDate - now;
-      if (distance < 0) { clearInterval(this.interval); }
-      else {
-        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((distance % (1000 * 60)) / 1000);
-        this.days = d < 10 ? '0' + d : d.toString();
-        this.hours = h < 10 ? '0' + h : h.toString();
-        this.minutes = m < 10 ? '0' + m : m.toString();
-        this.seconds = s < 10 ? '0' + s : s.toString();
-      }
-    }, 1000);
+  startGalleryAutoplay() {
+    this.galleryInterval = setInterval(() => {
+      this.currentSlide = (this.currentSlide + 1) % this.galleryImages.length;
+    }, 4000);
+  }
+
+  goToSlide(index: number) {
+    this.currentSlide = index;
+    if (this.isBrowser) {
+      clearInterval(this.galleryInterval);
+      this.startGalleryAutoplay();
+    }
   }
 
   scrollToTimeline() {
